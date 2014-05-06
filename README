@@ -1,0 +1,10 @@
+Descrição do Software
+
+Software com propósito de registrar as despesas e receitas do usuário cadastrado. Cada usuário terá seus dados protegidos de forma que outros usuário não possa vê los. Para isso é necessário que o software tenha as seguintes funcionalidades: 
+
+Cadastro de usuário: Informações usada para fazer login no sistema e restringir registros.
+Cadastro de Contas: Informações usada para receber transações. Ex.: Conta Corrente, Banco Itaú, Etc.
+Cadastro de Categorias: Informações usada para filtrar transações.
+Cadastro de Transações: Informações usadas para adicionar transações de receitas, despesas e se der tempo transferências entre contas.
+
+Outra funcionalidade que o sistema terá é o cadastro de Orçamento, mensal e anual, o qual consiste no usuário definir uma meta de valor embasado nas categorias cadastradas no sistema.
