@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CE307A09-6B48-403A-871F-A20C3500AEF4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Barros.FinanceControl</RootNamespace>
+    <AssemblyName>FinanceControl</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Barros.FinanceControl.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FluentNHibernate">
+      <HintPath>packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.DataAccess, Version=2.112.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>packages\Oracle.DataAccess.x86.2.112.1.0\lib\Oracle.DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Entities\Categoria.cs" />
+    <Compile Include="Models\Entities\Conta.cs" />
+    <Compile Include="Models\Entities\Transacao.cs" />
+    <Compile Include="Models\Entities\Usuario.cs" />
+    <Compile Include="Models\Entities\UsuarioLogado.cs" />
+    <Compile Include="Models\Repository\Daos\AbstractGenericDao.cs" />
+    <Compile Include="Models\Repository\Daos\BaseCrudDao.cs" />
+    <Compile Include="Models\Repository\Daos\CategoriaDao.cs" />
+    <Compile Include="Models\Repository\Daos\ContaDao.cs" />
+    <Compile Include="Models\Repository\Daos\TransacaoDao.cs" />
+    <Compile Include="Models\Repository\Daos\UsuarioDao.cs" />
+    <Compile Include="Models\Repository\FluentySessionFactory.cs" />
+    <Compile Include="Models\Repository\FluentySysSessionFactory.cs" />
+    <Compile Include="Models\Repository\Interface\IBaseCrudDao.cs" />
+    <Compile Include="Models\Repository\Mapping\CategoriaMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Repository\Mapping\ContaMap.cs" />
+    <Compile Include="Models\Repository\Mapping\TransacaoMap.cs" />
+    <Compile Include="Models\Repository\Mapping\UsusuarioMap.cs" />
+    <Compile Include="Models\Service\BaseCrudService.cs" />
+    <Compile Include="Models\Service\CategoriaService.cs" />
+    <Compile Include="Models\Service\ContaService.cs" />
+    <Compile Include="Models\Service\TransacaoService.cs" />
+    <Compile Include="Models\Service\UsuarioService.cs" />
+    <Compile Include="Utils\IListConverter.cs" />
+    <Compile Include="Utils\MD5EncryptHandler.cs" />
+    <Compile Include="View\FormAguarde.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormAguarde.Designer.cs">
+      <DependentUpon>FormAguarde.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormTransacao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormTransacao.Designer.cs">
+      <DependentUpon>FormTransacao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormCategoria.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCategoria.Designer.cs">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormTransacaoView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormTransacaoView.Designer.cs">
+      <DependentUpon>FormTransacaoView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormConta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormConta.Designer.cs">
+      <DependentUpon>FormConta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormCategoriaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormCategoriaView.Designer.cs">
+      <DependentUpon>FormCategoriaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormContaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormContaView.Designer.cs">
+      <DependentUpon>FormContaView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\FormUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormUsuario.Designer.cs">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\FormUsuarioView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\FormUsuarioView.Designer.cs">
+      <DependentUpon>FormUsuarioView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="View\FormAguarde.resx">
+      <DependentUpon>FormAguarde.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormTransacao.resx">
+      <DependentUpon>FormTransacao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCategoria.resx">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormTransacaoView.resx">
+      <DependentUpon>FormTransacaoView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormConta.resx">
+      <DependentUpon>FormConta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormCategoriaView.resx">
+      <DependentUpon>FormCategoriaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormContaView.resx">
+      <DependentUpon>FormContaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormPrincipal.pt-BR.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\FormUsuario.resx">
+      <DependentUpon>FormUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\FormUsuarioView.resx">
+      <DependentUpon>FormUsuarioView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Categoria.datasource" />
+    <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Conta.datasource" />
+    <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Transacao.datasource" />
+    <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Usuario.datasource" />
+    <None Include="Properties\DataSources\Tecnomotor.InjectorTestPC.Models.Entities.ClienteInfo.Cliente.datasource" />
+    <None Include="Properties\DataSources\Tecnomotor.InjectorTestPC.Models.Entities.ClienteInfo.ProprietarioVeiculo.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <None Include="Resources\aguarde_g.gif" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
