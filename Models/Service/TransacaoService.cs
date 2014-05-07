@@ -31,5 +31,9 @@ namespace Barros.FinanceControl.Models.Service {
 
             return dao.findByHql("from Transacao order by " + field + " " + orderBy);
         }
+
+        public IList<Transacao> getAllListUntilDate(DateTime date) {
+            return dao.findByHql("from Transacao t where t.Data <= ? order by t.Data", date);
+        }
     }
 }

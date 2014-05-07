@@ -35,8 +35,8 @@ namespace Barros.FinanceControl.View {
             categoria.CategoriaPai = null;
             if (cbxCategoriaPai.Items.Count > 0 && cbxCategoriaPai.SelectedIndex >= 0) 
                 categoria.CategoriaPai = ((IList<Categoria>)cbxCategoriaPai.DataSource)[cbxCategoriaPai.SelectedIndex];
-
-            if (categoria.CategoriaPai.Equals(categoria))
+           
+            if (categoria.CategoriaPai != null && categoria.CategoriaPai.Equals(categoria))
                 throw new InvalidOperationException("A categoria pai não pode ser a mesma categoria do objeto!");
             return categoria;
         }

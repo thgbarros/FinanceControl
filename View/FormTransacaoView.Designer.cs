@@ -25,28 +25,7 @@ namespace Barros.FinanceControl.View
             }
             base.Dispose(disposing);
         }
-
-        private void loadCheckedListBoxConta()
-        {
-            ContaService contaService = new ContaService(new ContaDao(
-                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
-                                    .getUsuario()).Session));
-            checkedListBoxConta.Items.AddRange(
-                    IListConverter<Conta>.toList(contaService
-                            .getAllListOrderByAsc("Descricao")).ToArray());
-            contaService = null;
-        }
-
-        private void loadCheckedListBoxCategoria()
-        {
-            CategoriaService categoriaService = new CategoriaService(new CategoriaDao(
-                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
-                                    .getUsuario()).Session));
-            checkedListBoxCategoria.Items.AddRange(
-                    IListConverter<Categoria>.toList(categoriaService
-                            .getAllListOrderBy("Descricao")).ToArray());
-            categoriaService = null;
-        }
+       
 
         #region Windows Form Designer generated code
 
@@ -57,17 +36,11 @@ namespace Barros.FinanceControl.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransacaoView));
             this.tableLayoutPanelContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.clienteDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.transacaoDataGridView = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanelAcoes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBotoes = new System.Windows.Forms.TableLayoutPanel();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -88,22 +61,24 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelFiltro = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedDataFinal = new System.Windows.Forms.MaskedTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.maskedDataInicial = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanelContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).BeginInit();
             this.tableLayoutPanelAcoes.SuspendLayout();
             this.tableLayoutPanelBotoes.SuspendLayout();
             this.tableLayoutPanelPesquisa.SuspendLayout();
             this.tableLayoutPanelContaCategoria.SuspendLayout();
             this.tableLayoutPanelFiltro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelContainer
@@ -111,7 +86,7 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContainer.ColumnCount = 2;
             this.tableLayoutPanelContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.37628F));
             this.tableLayoutPanelContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.62372F));
-            this.tableLayoutPanelContainer.Controls.Add(this.clienteDataGridView, 1, 1);
+            this.tableLayoutPanelContainer.Controls.Add(this.transacaoDataGridView, 1, 1);
             this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelAcoes, 0, 2);
             this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelContaCategoria, 0, 0);
             this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelFiltro, 1, 0);
@@ -126,74 +101,25 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContainer.Size = new System.Drawing.Size(684, 536);
             this.tableLayoutPanelContainer.TabIndex = 0;
             // 
-            // clienteDataGridView
+            // transacaoDataGridView
             // 
-            this.clienteDataGridView.AutoGenerateColumns = false;
-            this.clienteDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.clienteDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.transacaoDataGridView.AutoGenerateColumns = false;
+            this.transacaoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transacaoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataDataGridViewTextBoxColumn,
             this.descricaoDataGridViewTextBoxColumn,
             this.categoriaDataGridViewTextBoxColumn,
             this.contaDataGridViewTextBoxColumn,
             this.valorDataGridViewTextBoxColumn});
-            this.clienteDataGridView.DataSource = this.transacaoBindingSource;
-            this.clienteDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.clienteDataGridView.Location = new System.Drawing.Point(149, 40);
-            this.clienteDataGridView.MultiSelect = false;
-            this.clienteDataGridView.Name = "clienteDataGridView";
-            this.clienteDataGridView.ReadOnly = true;
-            this.clienteDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.clienteDataGridView.Size = new System.Drawing.Size(532, 373);
-            this.clienteDataGridView.TabIndex = 0;
-            // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle1.Format = "dd/MM/yyyy";
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // categoriaDataGridViewTextBoxColumn
-            // 
-            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoriaDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // contaDataGridViewTextBoxColumn
-            // 
-            this.contaDataGridViewTextBoxColumn.DataPropertyName = "Conta";
-            this.contaDataGridViewTextBoxColumn.HeaderText = "Conta";
-            this.contaDataGridViewTextBoxColumn.Name = "contaDataGridViewTextBoxColumn";
-            this.contaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contaDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Format = "C2";
-            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valorDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // transacaoBindingSource
-            // 
-            this.transacaoBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Transacao);
+            this.transacaoDataGridView.DataSource = this.transacaoBindingSource;
+            this.transacaoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transacaoDataGridView.Location = new System.Drawing.Point(149, 40);
+            this.transacaoDataGridView.MultiSelect = false;
+            this.transacaoDataGridView.Name = "transacaoDataGridView";
+            this.transacaoDataGridView.ReadOnly = true;
+            this.transacaoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.transacaoDataGridView.Size = new System.Drawing.Size(532, 373);
+            this.transacaoDataGridView.TabIndex = 0;
             // 
             // tableLayoutPanelAcoes
             // 
@@ -449,9 +375,9 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
             this.tableLayoutPanelFiltro.Controls.Add(this.label7, 0, 0);
             this.tableLayoutPanelFiltro.Controls.Add(this.label5, 3, 0);
-            this.tableLayoutPanelFiltro.Controls.Add(this.maskedTextBox2, 4, 0);
+            this.tableLayoutPanelFiltro.Controls.Add(this.maskedDataFinal, 4, 0);
             this.tableLayoutPanelFiltro.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanelFiltro.Controls.Add(this.maskedTextBox1, 2, 0);
+            this.tableLayoutPanelFiltro.Controls.Add(this.maskedDataInicial, 2, 0);
             this.tableLayoutPanelFiltro.Controls.Add(this.button1, 5, 0);
             this.tableLayoutPanelFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelFiltro.Location = new System.Drawing.Point(149, 3);
@@ -484,15 +410,15 @@ namespace Barros.FinanceControl.View
             this.label5.TabIndex = 2;
             this.label5.Text = "Data Final:";
             // 
-            // maskedTextBox2
+            // maskedDataFinal
             // 
-            this.maskedTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox2.Location = new System.Drawing.Point(355, 4);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(84, 22);
-            this.maskedTextBox2.TabIndex = 3;
+            this.maskedDataFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedDataFinal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedDataFinal.Location = new System.Drawing.Point(355, 4);
+            this.maskedDataFinal.Mask = "00/00/0000";
+            this.maskedDataFinal.Name = "maskedDataFinal";
+            this.maskedDataFinal.Size = new System.Drawing.Size(84, 22);
+            this.maskedDataFinal.TabIndex = 3;
             // 
             // label4
             // 
@@ -504,15 +430,15 @@ namespace Barros.FinanceControl.View
             this.label4.TabIndex = 0;
             this.label4.Text = "Data Inicial:";
             // 
-            // maskedTextBox1
+            // maskedDataInicial
             // 
-            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedTextBox1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedTextBox1.Location = new System.Drawing.Point(175, 4);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(84, 22);
-            this.maskedTextBox1.TabIndex = 1;
+            this.maskedDataInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedDataInicial.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedDataInicial.Location = new System.Drawing.Point(175, 4);
+            this.maskedDataInicial.Mask = "00/00/0000";
+            this.maskedDataInicial.Name = "maskedDataInicial";
+            this.maskedDataInicial.Size = new System.Drawing.Size(84, 22);
+            this.maskedDataInicial.TabIndex = 1;
             // 
             // button1
             // 
@@ -525,9 +451,56 @@ namespace Barros.FinanceControl.View
             this.button1.Text = "F9 - Filtrar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // contaBindingSource
+            // dataDataGridViewTextBoxColumn
             // 
-            this.contaBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Conta);
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = null;
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            this.dataDataGridViewTextBoxColumn.Width = 130;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoriaDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // contaDataGridViewTextBoxColumn
+            // 
+            this.contaDataGridViewTextBoxColumn.DataPropertyName = "Conta";
+            this.contaDataGridViewTextBoxColumn.HeaderText = "Conta";
+            this.contaDataGridViewTextBoxColumn.Name = "contaDataGridViewTextBoxColumn";
+            this.contaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contaDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Format = "C2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valorDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // transacaoBindingSource
+            // 
+            this.transacaoBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Transacao);
             // 
             // FormTransacaoView
             // 
@@ -549,8 +522,7 @@ namespace Barros.FinanceControl.View
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTransacaoView_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormClienteView_KeyDown);
             this.tableLayoutPanelContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.clienteDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).EndInit();
             this.tableLayoutPanelAcoes.ResumeLayout(false);
             this.tableLayoutPanelBotoes.ResumeLayout(false);
             this.tableLayoutPanelPesquisa.ResumeLayout(false);
@@ -559,8 +531,7 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContaCategoria.PerformLayout();
             this.tableLayoutPanelFiltro.ResumeLayout(false);
             this.tableLayoutPanelFiltro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -593,17 +564,15 @@ namespace Barros.FinanceControl.View
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContaCategoria;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView clienteDataGridView;
+        private System.Windows.Forms.DataGridView transacaoDataGridView;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelFiltro;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox maskedDataFinal;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.MaskedTextBox maskedDataInicial;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.BindingSource transacaoBindingSource;
-        private System.Windows.Forms.BindingSource contaBindingSource;
         private System.Windows.Forms.CheckedListBox checkedListBoxConta;
-        private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckedListBox checkedListBoxCategoria;
         private System.Windows.Forms.Label label7;

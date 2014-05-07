@@ -1,6 +1,7 @@
 ﻿using Barros.FinanceControl.Models.Repository.Daos;
 using Barros.FinanceControl.Models.Service;
 using System;
+using System.Windows.Forms;
 using Tecnomotor.InjectorTestPC.Models.Repositories;
 
 namespace Barros.FinanceControl.Models.Entities {
@@ -18,7 +19,7 @@ namespace Barros.FinanceControl.Models.Entities {
             try {
                 FluentlySessionFactory factory = FluentlySessionFactory.getInstanceFor(usuario);
                 this.usuario = usuario;
-            } catch (Exception ex) {
+            } catch (Exception ex) {                
                 FluentlySessionFactory.setNullInstance();
                 FluentlySysSessionFactory factory = FluentlySysSessionFactory.getInstance(usuario);
                 

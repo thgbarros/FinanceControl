@@ -21,9 +21,40 @@ namespace Barros.FinanceControl.View {
             cbxCampoSelecionado.DataSource = transacaoService.getAllPropertiesWithoutType(
                         typeof(Conta), typeof(Categoria));
 
-            loadCheckedListBoxConta();
-            loadCheckedListBoxCategoria();                   
-            transacaoBindingSource.DataSource = transacaoService.getAllListOrderBy("Data");                        
+            loadCheckedListBoxConta();            
+            loadCheckedListBoxCategoria();            
+            maskedDataFinal.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            atualizaGrid();
+        }
+
+        private void loadCheckedListBoxConta() {
+            ContaService contaService = new ContaService(new ContaDao(
+                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
+                                    .getUsuario()).Session));
+            checkedListBoxConta.Items.AddRange(
+                    IListConverter<Conta>.toList(contaService
+                            .getAllListOrderByAsc("Descricao")).ToArray());
+            contaService = null;
+            
+        }
+
+        private void loadCheckedListBoxCategoria() {
+            CategoriaService categoriaService = new CategoriaService(new CategoriaDao(
+                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
+                                    .getUsuario()).Session));
+            checkedListBoxCategoria.Items.AddRange(
+                    IListConverter<Categoria>.toList(categoriaService
+                            .getAllListOrderBy("Descricao")).ToArray());            
+            categoriaService = null;
+        }
+
+        private void atualizaGrid() {
+            transacaoBindingSource.DataSource = transacaoService.getAllListUntilDate(DateTime.Now);
+        }
+
+        private Transacao getTransacaoSelecionada() {
+            int linhaSelecionada = transacaoDataGridView.CurrentRow.Index;
+            return ((IList<Transacao>)transacaoBindingSource.DataSource)[linhaSelecionada];
         }
 
         private void FormClienteView_KeyPress(object sender, KeyPressEventArgs e)
@@ -33,18 +64,25 @@ namespace Barros.FinanceControl.View {
        
         private void btnIncluir_Click(object sender, EventArgs e)
         {
-            FormTransacao fu = new FormTransacao();
+            FormTransacao fu = new FormTransacao(transacaoService);
             fu.ShowDialog();
+            atualizaGrid();
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)
-        {            
-
+        {
+            FormTransacao fu = new FormTransacao(transacaoService, getTransacaoSelecionada());
+            fu.ShowDialog();
+            atualizaGrid();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-  
+            if (MessageBox.Show("Deseja excluir a transação selecionada?", "ATENÇÃO",
+                                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) {
+                transacaoService.delete(getTransacaoSelecionada());
+                atualizaGrid();
+            }  
         }
 
         private void btnFechar_Click(object sender, EventArgs e)
@@ -78,13 +116,19 @@ namespace Barros.FinanceControl.View {
         }
 
         private void cbxCampoSelecionado_SelectedValueChanged(object sender, EventArgs e)
-        {            
-
+        {
+            atualizaGrid();
         }
 
         private void txtBusca_TextChanged(object sender, EventArgs e)
         {
+            if (txtBusca.Text.Length == 0) {
+                atualizaGrid();
+                return;
+            }
 
+            transacaoBindingSource.DataSource = transacaoService.searchByField(cbxCampoSelecionado.Text).thisValue(txtBusca.Text);
+            transacaoDataGridView.Refresh();
         }
 
         private void FormTransacaoView_FormClosing(object sender, FormClosingEventArgs e)

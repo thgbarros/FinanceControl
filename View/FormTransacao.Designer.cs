@@ -30,21 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransacao));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.tableLayoutPanelConteudo = new System.Windows.Forms.TableLayoutPanel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.maskedData = new System.Windows.Forms.MaskedTextBox();
+            this.cbxConta = new System.Windows.Forms.ComboBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanelBotoes = new System.Windows.Forms.TableLayoutPanel();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxCategoria = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanelConteudo.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.tableLayoutPanelBotoes.SuspendLayout();
@@ -60,15 +60,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(562, 19);
             this.panel1.TabIndex = 61;
-            // 
-            // txtId
-            // 
-            this.txtId.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtId.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(162, 42);
-            this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(86, 26);
-            this.txtId.TabIndex = 0;
             // 
             // label1
             // 
@@ -106,33 +97,33 @@
             this.label7.Text = "Categoria:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // txtNome
+            // txtDescricao
             // 
-            this.txtNome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtNome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNome.Location = new System.Drawing.Point(162, 79);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(377, 26);
-            this.txtNome.TabIndex = 1;
+            this.txtDescricao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtDescricao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescricao.Location = new System.Drawing.Point(162, 79);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(375, 26);
+            this.txtDescricao.TabIndex = 1;
             // 
             // tableLayoutPanelConteudo
             // 
             this.tableLayoutPanelConteudo.ColumnCount = 3;
             this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.39914F));
             this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.60086F));
-            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanelConteudo.Controls.Add(this.comboBox2, 1, 4);
-            this.tableLayoutPanelConteudo.Controls.Add(this.textBox2, 1, 5);
+            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
+            this.tableLayoutPanelConteudo.Controls.Add(this.maskedData, 0, 1);
+            this.tableLayoutPanelConteudo.Controls.Add(this.cbxConta, 1, 4);
+            this.tableLayoutPanelConteudo.Controls.Add(this.txtValor, 1, 5);
             this.tableLayoutPanelConteudo.Controls.Add(this.label3, 0, 5);
             this.tableLayoutPanelConteudo.Controls.Add(this.label2, 0, 4);
-            this.tableLayoutPanelConteudo.Controls.Add(this.txtNome, 1, 2);
+            this.tableLayoutPanelConteudo.Controls.Add(this.txtDescricao, 1, 2);
             this.tableLayoutPanelConteudo.Controls.Add(this.label7, 0, 3);
             this.tableLayoutPanelConteudo.Controls.Add(this.label5, 0, 2);
             this.tableLayoutPanelConteudo.Controls.Add(this.label1, 0, 1);
-            this.tableLayoutPanelConteudo.Controls.Add(this.txtId, 1, 1);
             this.tableLayoutPanelConteudo.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanelConteudo.Controls.Add(this.flowLayoutPanel1, 0, 8);
-            this.tableLayoutPanelConteudo.Controls.Add(this.comboBox1, 1, 3);
+            this.tableLayoutPanelConteudo.Controls.Add(this.cbxCategoria, 1, 3);
             this.tableLayoutPanelConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelConteudo.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelConteudo.Name = "tableLayoutPanelConteudo";
@@ -151,24 +142,35 @@
             this.tableLayoutPanelConteudo.Size = new System.Drawing.Size(568, 322);
             this.tableLayoutPanelConteudo.TabIndex = 0;
             // 
-            // comboBox2
+            // maskedData
             // 
-            this.comboBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(162, 153);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(377, 26);
-            this.comboBox2.TabIndex = 70;
+            this.maskedData.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.maskedData.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedData.Location = new System.Drawing.Point(162, 44);
+            this.maskedData.Mask = "00/00/0000";
+            this.maskedData.Name = "maskedData";
+            this.maskedData.Size = new System.Drawing.Size(79, 22);
+            this.maskedData.TabIndex = 0;
             // 
-            // textBox2
+            // cbxConta
             // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(162, 190);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(106, 26);
-            this.textBox2.TabIndex = 69;
+            this.cbxConta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxConta.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxConta.FormattingEnabled = true;
+            this.cbxConta.Location = new System.Drawing.Point(162, 153);
+            this.cbxConta.Name = "cbxConta";
+            this.cbxConta.Size = new System.Drawing.Size(375, 26);
+            this.cbxConta.TabIndex = 3;
+            // 
+            // txtValor
+            // 
+            this.txtValor.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtValor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtValor.Location = new System.Drawing.Point(162, 190);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(106, 26);
+            this.txtValor.TabIndex = 4;
+            this.txtValor.Leave += new System.EventHandler(this.txtValor_Leave);
             // 
             // label3
             // 
@@ -231,6 +233,7 @@
             this.btnGravar.TabIndex = 5;
             this.btnGravar.Text = "F5 - Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnCancelar
             // 
@@ -242,16 +245,17 @@
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "F6 - Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // comboBox1
+            // cbxCategoria
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.comboBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(162, 116);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(377, 26);
-            this.comboBox1.TabIndex = 64;
+            this.cbxCategoria.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbxCategoria.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxCategoria.FormattingEnabled = true;
+            this.cbxCategoria.Location = new System.Drawing.Point(162, 116);
+            this.cbxCategoria.Name = "cbxCategoria";
+            this.cbxCategoria.Size = new System.Drawing.Size(375, 26);
+            this.cbxCategoria.TabIndex = 2;
             // 
             // FormTransacao
             // 
@@ -277,20 +281,20 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelConteudo;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelBotoes;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxConta;
+        private System.Windows.Forms.ComboBox cbxCategoria;
+        private System.Windows.Forms.MaskedTextBox maskedData;
 
 
     }
