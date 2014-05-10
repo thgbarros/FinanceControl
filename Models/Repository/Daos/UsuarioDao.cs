@@ -78,9 +78,10 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
 
         private string getTabelaCategoriaFor(Usuario usuario){
             return "create table " + usuario.Login + ".categoria(" +
-                        "id number(5) not null," +
+                        "id number not null," +
                         "descricao varchar2(100) not null," +
-                        "categoria_pai number(5)," +
+                        "categoria_pai number," +
+                        "tipo_categoria number not null" +
                         "constraint pk_categoria_id primary key(id)," +
                         "constraint fk_categoria_pai foreign key(categoria_pai) references " + usuario.Login + ".categoria(id))";
 
@@ -102,7 +103,7 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
 
         private string getTabelaContaFor(Usuario usuario) {
             return "create table " + usuario.Login + ".conta(" +
-                "id number(5) not null," +
+                "id number not null," +
                 "descricao varchar2(100) not null," +
                 "saldoInicial number(9,2) default 0.0," +
                 "constraint pk_conta_id primary key(id))";
@@ -124,11 +125,11 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
 
         private string getTabelaTransacaoFor(Usuario usuario) {
             return "create table " + usuario.Login + ".transacao(" +
-                "id number(5) not null," +
+                "id number not null," +
                 "data_transacao date default sysdate," +
                 "descricao varchar2(300)," +
-                "categoria_id number(5) not null," +
-                "conta_id number(5) not null," +
+                "categoria_id number not null," +
+                "conta_id number not null," +
                 "valor number(9,2) not null,"+
                 "constraint pk_transacao_id primary key(id)," +
                 "constraint fk_categoria_id foreign key(categoria_id) references " + usuario.Login + ".categoria(id)," +

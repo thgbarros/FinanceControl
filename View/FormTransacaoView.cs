@@ -49,12 +49,16 @@ namespace Barros.FinanceControl.View {
         }
 
         private void atualizaGrid() {
-            transacaoBindingSource.DataSource = transacaoService.getAllListUntilDate(DateTime.Now);
+            transacaoBindingSource.DataSource = transacaoService.getAllListUntilDate(DateTime.Now);            
         }
 
         private Transacao getTransacaoSelecionada() {
             int linhaSelecionada = transacaoDataGridView.CurrentRow.Index;
             return ((IList<Transacao>)transacaoBindingSource.DataSource)[linhaSelecionada];
+        }
+
+        private void addFiltro(Conta conta) { 
+            
         }
 
         private void FormClienteView_KeyPress(object sender, KeyPressEventArgs e)
@@ -134,6 +138,15 @@ namespace Barros.FinanceControl.View {
         private void FormTransacaoView_FormClosing(object sender, FormClosingEventArgs e)
         {
             FormPrincipal.getInstance().enablePanelBotoes();
+        }
+
+        private void checkedListBoxConta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (checkedListBoxConta.GetItemChecked(checkedListBoxConta.SelectedIndex) ) {
+                foreach (Conta itemChecked in checkedListBoxConta.CheckedItems) {
+                    MessageBox.Show(itemChecked.ToString());
+                }
+            }
         }        
         
     }

@@ -5,13 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Barros.FinanceControl.Models.Entities {
-    
+
+    public enum TipoCategoria { 
+        NONE, RECEITA, DESPESA
+    }
+
     [Serializable]
     public class Categoria {
-
         public virtual int Id { get; set; }
         public virtual string Descricao { get; set; }
-        public virtual Categoria CategoriaPai { get; set; }        
+        public virtual Categoria CategoriaPai { get; set; }
+        public virtual TipoCategoria TipoCategoria { get; set; }
 
         public override string ToString(){                 
             return (CategoriaPai != null ? 

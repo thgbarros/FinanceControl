@@ -36,11 +36,17 @@ namespace Barros.FinanceControl.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransacaoView));
             this.tableLayoutPanelContainer = new System.Windows.Forms.TableLayoutPanel();
             this.transacaoDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanelAcoes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBotoes = new System.Windows.Forms.TableLayoutPanel();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -65,20 +71,14 @@ namespace Barros.FinanceControl.View
             this.label4 = new System.Windows.Forms.Label();
             this.maskedDataInicial = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
             this.tableLayoutPanelAcoes.SuspendLayout();
             this.tableLayoutPanelBotoes.SuspendLayout();
             this.tableLayoutPanelPesquisa.SuspendLayout();
             this.tableLayoutPanelContaCategoria.SuspendLayout();
             this.tableLayoutPanelFiltro.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelContainer
@@ -112,14 +112,63 @@ namespace Barros.FinanceControl.View
             this.contaDataGridViewTextBoxColumn,
             this.valorDataGridViewTextBoxColumn});
             this.transacaoDataGridView.DataSource = this.transacaoBindingSource;
-            this.transacaoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transacaoDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.transacaoDataGridView.Location = new System.Drawing.Point(149, 40);
             this.transacaoDataGridView.MultiSelect = false;
             this.transacaoDataGridView.Name = "transacaoDataGridView";
             this.transacaoDataGridView.ReadOnly = true;
             this.transacaoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.transacaoDataGridView.Size = new System.Drawing.Size(532, 373);
+            this.transacaoDataGridView.Size = new System.Drawing.Size(532, 286);
             this.transacaoDataGridView.TabIndex = 0;
+            // 
+            // dataDataGridViewTextBoxColumn
+            // 
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoDataGridViewTextBoxColumn.Width = 300;
+            // 
+            // categoriaDataGridViewTextBoxColumn
+            // 
+            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.categoriaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // contaDataGridViewTextBoxColumn
+            // 
+            this.contaDataGridViewTextBoxColumn.DataPropertyName = "Conta";
+            this.contaDataGridViewTextBoxColumn.HeaderText = "Conta";
+            this.contaDataGridViewTextBoxColumn.Name = "contaDataGridViewTextBoxColumn";
+            this.contaDataGridViewTextBoxColumn.ReadOnly = true;
+            this.contaDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // valorDataGridViewTextBoxColumn
+            // 
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.valorDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // transacaoBindingSource
+            // 
+            this.transacaoBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Transacao);
             // 
             // tableLayoutPanelAcoes
             // 
@@ -363,6 +412,7 @@ namespace Barros.FinanceControl.View
             this.checkedListBoxConta.Size = new System.Drawing.Size(134, 162);
             this.checkedListBoxConta.TabIndex = 2;
             this.checkedListBoxConta.ThreeDCheckBoxes = true;
+            this.checkedListBoxConta.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxConta_SelectedIndexChanged);
             // 
             // tableLayoutPanelFiltro
             // 
@@ -451,57 +501,6 @@ namespace Barros.FinanceControl.View
             this.button1.Text = "F9 - Filtrar";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // dataDataGridViewTextBoxColumn
-            // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
-            this.dataDataGridViewTextBoxColumn.Width = 130;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Width = 300;
-            // 
-            // categoriaDataGridViewTextBoxColumn
-            // 
-            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoriaDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // contaDataGridViewTextBoxColumn
-            // 
-            this.contaDataGridViewTextBoxColumn.DataPropertyName = "Conta";
-            this.contaDataGridViewTextBoxColumn.HeaderText = "Conta";
-            this.contaDataGridViewTextBoxColumn.Name = "contaDataGridViewTextBoxColumn";
-            this.contaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contaDataGridViewTextBoxColumn.Width = 200;
-            // 
-            // valorDataGridViewTextBoxColumn
-            // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "C2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valorDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // transacaoBindingSource
-            // 
-            this.transacaoBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Transacao);
-            // 
             // FormTransacaoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -523,6 +522,7 @@ namespace Barros.FinanceControl.View
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormClienteView_KeyDown);
             this.tableLayoutPanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
             this.tableLayoutPanelAcoes.ResumeLayout(false);
             this.tableLayoutPanelBotoes.ResumeLayout(false);
             this.tableLayoutPanelPesquisa.ResumeLayout(false);
@@ -531,7 +531,6 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContaCategoria.PerformLayout();
             this.tableLayoutPanelFiltro.ResumeLayout(false);
             this.tableLayoutPanelFiltro.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

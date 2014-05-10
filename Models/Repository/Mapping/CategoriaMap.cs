@@ -10,6 +10,7 @@ namespace Barros.FinanceControl.Models.Repository.Mapping {
 
             Id(c => c.Id, "id").GeneratedBy.Sequence("SEQ_CAT_ID");
             Map(c => c.Descricao).Column("descricao").Length(100).Not.Nullable();
+            Map(c => c.TipoCategoria).Column("tipo_categoria").CustomType<int>();
             References(c => c.CategoriaPai).Column("categoria_pai").Cascade.SaveUpdate();
         }
 

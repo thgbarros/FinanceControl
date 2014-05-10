@@ -17,18 +17,18 @@ namespace Barros.FinanceControl.View
             maskedData.Text = DateTime.Now.ToString("dd/MM/yyyy");
             this.service = service;
 
-            //ContaService contaService = new ContaService(new ContaDao(
-            //                    FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
-            //                        .getUsuario()).Session));
+            ContaService contaService = new ContaService(new ContaDao(
+                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
+                                    .getUsuario()).Session));
 
-            //CategoriaService categoriaService = new CategoriaService(new CategoriaDao(
-            //                    FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
-            //                        .getUsuario()).Session));
+            CategoriaService categoriaService = new CategoriaService(new CategoriaDao(
+                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
+                                    .getUsuario()).Session));
 
-            //cbxCategoria.DataSource = categoriaService.getAll();
-            //cbxConta.DataSource = contaService.getAll();
-            //categoriaService = null;
-            //contaService = null;
+            cbxCategoria.DataSource = categoriaService.getAll();
+            cbxConta.DataSource = contaService.getAll();
+            categoriaService = null;
+            contaService = null;
         }
 
         public FormTransacao(TransacaoService service, Transacao transacao) : this(service) {            
@@ -87,7 +87,8 @@ namespace Barros.FinanceControl.View
 
         private void txtValor_Leave(object sender, System.EventArgs e)
         {
-            txtValor.Text = formatValor(Convert.ToDouble(txtValor.Text));   
+            if (txtValor.Text.Length > 0)
+                txtValor.Text = formatValor(Convert.ToDouble(txtValor.Text));   
         }
     }
 }
