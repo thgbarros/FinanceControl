@@ -16,10 +16,10 @@ namespace Barros.FinanceControl.View {
             contaService = new ContaService(new ContaDao(
                     FluentlySessionFactory.getInstanceFor(
                         UsuarioLogado.getInstance().getUsuario()).Session));
-
-            cbxCampoSelecionado.DataSource = contaService.getAllProperties();
+            
+            cbxCampoSelecionado.DataSource = contaService.getAllPropertiesWitoutPropertyName("Transacoes");
             cbxCampoSelecionado.SelectedIndex = 0;
-            atualizaGrid();
+//            atualizaGrid();
         }            
 
         private void atualizaGrid() {

@@ -4,12 +4,21 @@ using System;
 namespace Barros.FinanceControl.Models.Entities {
     
     public class Transacao {
+        private double valor;
+
         public virtual int Id { get; set; }
         public virtual DateTime Data { get; set; }
         public virtual string Descricao { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual Conta Conta { get; set; }
-        public virtual double Valor { get; set; }        
+        public virtual double Valor { 
+            get { return valor;}
+            set{
+                valor = value;
+                if (Categoria != null  && Categoria.TipoCategoria.Equals(TipoCategoria.DESPESA))
+                    valor *= -1;
+            } 
+        }   
 
         public override string ToString(){
             return String.Format("dd/MM/yyyy", this.Data) +

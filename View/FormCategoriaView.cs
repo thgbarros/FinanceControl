@@ -20,8 +20,7 @@ namespace Barros.FinanceControl.View {
                         UsuarioLogado.getInstance().getUsuario()).Session));
 
             cbxCampoSelecionado.DataSource = categoriaService.getAllProperties();
-            cbxCampoSelecionado.SelectedIndex = 0;
-            atualizaGrid();
+            cbxCampoSelecionado.SelectedIndex = 0;            
         }            
 
         private void atualizaGrid() {

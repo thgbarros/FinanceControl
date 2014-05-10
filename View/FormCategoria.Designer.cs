@@ -117,7 +117,7 @@
             this.txtDescricao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(145, 69);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(336, 26);
+            this.txtDescricao.Size = new System.Drawing.Size(335, 26);
             this.txtDescricao.TabIndex = 1;
             // 
             // tableLayoutPanelConteudo
@@ -125,7 +125,7 @@
             this.tableLayoutPanelConteudo.ColumnCount = 3;
             this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.39914F));
             this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.60086F));
-            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanelConteudo.Controls.Add(this.label2, 0, 4);
             this.tableLayoutPanelConteudo.Controls.Add(this.txtDescricao, 1, 2);
             this.tableLayoutPanelConteudo.Controls.Add(this.label7, 0, 3);
@@ -223,8 +223,8 @@
             this.cbxCategoriaPai.FormattingEnabled = true;
             this.cbxCategoriaPai.Location = new System.Drawing.Point(145, 102);
             this.cbxCategoriaPai.Name = "cbxCategoriaPai";
-            this.cbxCategoriaPai.Size = new System.Drawing.Size(336, 26);
-            this.cbxCategoriaPai.TabIndex = 64;
+            this.cbxCategoriaPai.Size = new System.Drawing.Size(335, 26);
+            this.cbxCategoriaPai.TabIndex = 2;
             this.cbxCategoriaPai.ValueMember = "Descricao";
             // 
             // categoriaBindingSource
@@ -238,7 +238,7 @@
             this.flowLayoutPanel2.Controls.Add(this.rbTipoDespesa);
             this.flowLayoutPanel2.Location = new System.Drawing.Point(145, 135);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(336, 27);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(335, 27);
             this.flowLayoutPanel2.TabIndex = 65;
             // 
             // rbTipoReceita
@@ -250,7 +250,7 @@
             this.rbTipoReceita.Location = new System.Drawing.Point(3, 3);
             this.rbTipoReceita.Name = "rbTipoReceita";
             this.rbTipoReceita.Size = new System.Drawing.Size(80, 22);
-            this.rbTipoReceita.TabIndex = 0;
+            this.rbTipoReceita.TabIndex = 3;
             this.rbTipoReceita.TabStop = true;
             this.rbTipoReceita.Text = "Receita";
             this.rbTipoReceita.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             this.rbTipoDespesa.Location = new System.Drawing.Point(89, 3);
             this.rbTipoDespesa.Name = "rbTipoDespesa";
             this.rbTipoDespesa.Size = new System.Drawing.Size(90, 22);
-            this.rbTipoDespesa.TabIndex = 1;
+            this.rbTipoDespesa.TabIndex = 4;
             this.rbTipoDespesa.Text = "Despesa";
             this.rbTipoDespesa.UseVisualStyleBackColor = true;
             // 

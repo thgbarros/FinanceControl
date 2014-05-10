@@ -36,17 +36,22 @@ namespace Barros.FinanceControl.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransacaoView));
-            this.tableLayoutPanelContainer = new System.Windows.Forms.TableLayoutPanel();
-            this.transacaoDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanelFiltro = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.maskedDataFinal = new System.Windows.Forms.MaskedTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.maskedDataInicial = new System.Windows.Forms.MaskedTextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.tableLayoutPanelContaCategoria = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkedListBoxCategoria = new System.Windows.Forms.CheckedListBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.checkedListBoxConta = new System.Windows.Forms.CheckedListBox();
             this.tableLayoutPanelAcoes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBotoes = new System.Windows.Forms.TableLayoutPanel();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -59,116 +64,183 @@ namespace Barros.FinanceControl.View
             this.label2 = new System.Windows.Forms.Label();
             this.cbxCampoSelecionado = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.tableLayoutPanelContaCategoria = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.checkedListBoxCategoria = new System.Windows.Forms.CheckedListBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkedListBoxConta = new System.Windows.Forms.CheckedListBox();
-            this.tableLayoutPanelFiltro = new System.Windows.Forms.TableLayoutPanel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.maskedDataFinal = new System.Windows.Forms.MaskedTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.maskedDataInicial = new System.Windows.Forms.MaskedTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanelContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
+            this.tableLayoutPanelContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanelConteudo = new System.Windows.Forms.TableLayoutPanel();
+            this.transacaoDataGridView = new System.Windows.Forms.DataGridView();
+            this.Saldo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanelFiltro.SuspendLayout();
+            this.tableLayoutPanelContaCategoria.SuspendLayout();
             this.tableLayoutPanelAcoes.SuspendLayout();
             this.tableLayoutPanelBotoes.SuspendLayout();
             this.tableLayoutPanelPesquisa.SuspendLayout();
-            this.tableLayoutPanelContaCategoria.SuspendLayout();
-            this.tableLayoutPanelFiltro.SuspendLayout();
+            this.tableLayoutPanelContainer.SuspendLayout();
+            this.tableLayoutPanelConteudo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // tableLayoutPanelContainer
+            // tableLayoutPanelFiltro
             // 
-            this.tableLayoutPanelContainer.ColumnCount = 2;
-            this.tableLayoutPanelContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.37628F));
-            this.tableLayoutPanelContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.62372F));
-            this.tableLayoutPanelContainer.Controls.Add(this.transacaoDataGridView, 1, 1);
-            this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelAcoes, 0, 2);
-            this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelContaCategoria, 0, 0);
-            this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelFiltro, 1, 0);
-            this.tableLayoutPanelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelContainer.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelContainer.Name = "tableLayoutPanelContainer";
-            this.tableLayoutPanelContainer.RowCount = 3;
-            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelContainer.Size = new System.Drawing.Size(684, 536);
-            this.tableLayoutPanelContainer.TabIndex = 0;
+            this.tableLayoutPanelFiltro.ColumnCount = 6;
+            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
+            this.tableLayoutPanelFiltro.Controls.Add(this.label7, 0, 0);
+            this.tableLayoutPanelFiltro.Controls.Add(this.label5, 3, 0);
+            this.tableLayoutPanelFiltro.Controls.Add(this.maskedDataFinal, 4, 0);
+            this.tableLayoutPanelFiltro.Controls.Add(this.label4, 1, 0);
+            this.tableLayoutPanelFiltro.Controls.Add(this.maskedDataInicial, 2, 0);
+            this.tableLayoutPanelFiltro.Controls.Add(this.button1, 5, 0);
+            this.tableLayoutPanelFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelFiltro.Location = new System.Drawing.Point(149, 3);
+            this.tableLayoutPanelFiltro.Name = "tableLayoutPanelFiltro";
+            this.tableLayoutPanelFiltro.RowCount = 1;
+            this.tableLayoutPanelFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
+            this.tableLayoutPanelFiltro.Size = new System.Drawing.Size(532, 31);
+            this.tableLayoutPanelFiltro.TabIndex = 3;
             // 
-            // transacaoDataGridView
+            // label7
             // 
-            this.transacaoDataGridView.AutoGenerateColumns = false;
-            this.transacaoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.transacaoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataDataGridViewTextBoxColumn,
-            this.descricaoDataGridViewTextBoxColumn,
-            this.categoriaDataGridViewTextBoxColumn,
-            this.contaDataGridViewTextBoxColumn,
-            this.valorDataGridViewTextBoxColumn});
-            this.transacaoDataGridView.DataSource = this.transacaoBindingSource;
-            this.transacaoDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-            this.transacaoDataGridView.Location = new System.Drawing.Point(149, 40);
-            this.transacaoDataGridView.MultiSelect = false;
-            this.transacaoDataGridView.Name = "transacaoDataGridView";
-            this.transacaoDataGridView.ReadOnly = true;
-            this.transacaoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.transacaoDataGridView.Size = new System.Drawing.Size(532, 286);
-            this.transacaoDataGridView.TabIndex = 0;
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(3, 6);
+            this.label7.Name = "label7";
+            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label7.Size = new System.Drawing.Size(76, 18);
+            this.label7.TabIndex = 5;
+            this.label7.Text = "Filtro:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // dataDataGridViewTextBoxColumn
+            // label5
             // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
-            dataGridViewCellStyle1.Format = "d";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
-            this.dataDataGridViewTextBoxColumn.ReadOnly = true;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(265, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(84, 16);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Data Final:";
             // 
-            // descricaoDataGridViewTextBoxColumn
+            // maskedDataFinal
             // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Width = 300;
+            this.maskedDataFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedDataFinal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedDataFinal.Location = new System.Drawing.Point(355, 4);
+            this.maskedDataFinal.Mask = "00/00/0000";
+            this.maskedDataFinal.Name = "maskedDataFinal";
+            this.maskedDataFinal.Size = new System.Drawing.Size(84, 22);
+            this.maskedDataFinal.TabIndex = 3;
             // 
-            // categoriaDataGridViewTextBoxColumn
+            // label4
             // 
-            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            this.categoriaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.categoriaDataGridViewTextBoxColumn.Width = 150;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(85, 7);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Data Inicial:";
             // 
-            // contaDataGridViewTextBoxColumn
+            // maskedDataInicial
             // 
-            this.contaDataGridViewTextBoxColumn.DataPropertyName = "Conta";
-            this.contaDataGridViewTextBoxColumn.HeaderText = "Conta";
-            this.contaDataGridViewTextBoxColumn.Name = "contaDataGridViewTextBoxColumn";
-            this.contaDataGridViewTextBoxColumn.ReadOnly = true;
-            this.contaDataGridViewTextBoxColumn.Width = 150;
+            this.maskedDataInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedDataInicial.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedDataInicial.Location = new System.Drawing.Point(175, 4);
+            this.maskedDataInicial.Mask = "00/00/0000";
+            this.maskedDataInicial.Name = "maskedDataInicial";
+            this.maskedDataInicial.Size = new System.Drawing.Size(84, 22);
+            this.maskedDataInicial.TabIndex = 1;
             // 
-            // valorDataGridViewTextBoxColumn
+            // button1
             // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.ReadOnly = true;
-            this.valorDataGridViewTextBoxColumn.Width = 150;
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(445, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(84, 25);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "F9 - Filtrar";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // transacaoBindingSource
+            // tableLayoutPanelContaCategoria
             // 
-            this.transacaoBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Transacao);
+            this.tableLayoutPanelContaCategoria.ColumnCount = 1;
+            this.tableLayoutPanelContaCategoria.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelContaCategoria.Controls.Add(this.label6, 0, 2);
+            this.tableLayoutPanelContaCategoria.Controls.Add(this.checkedListBoxCategoria, 0, 3);
+            this.tableLayoutPanelContaCategoria.Controls.Add(this.label3, 0, 0);
+            this.tableLayoutPanelContaCategoria.Controls.Add(this.checkedListBoxConta, 0, 1);
+            this.tableLayoutPanelContaCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelContaCategoria.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelContaCategoria.Name = "tableLayoutPanelContaCategoria";
+            this.tableLayoutPanelContaCategoria.RowCount = 4;
+            this.tableLayoutPanelContainer.SetRowSpan(this.tableLayoutPanelContaCategoria, 2);
+            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelContaCategoria.Size = new System.Drawing.Size(140, 410);
+            this.tableLayoutPanelContaCategoria.TabIndex = 2;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(3, 214);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(134, 18);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Categorias";
+            // 
+            // checkedListBoxCategoria
+            // 
+            this.checkedListBoxCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBoxCategoria.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxCategoria.FormattingEnabled = true;
+            this.checkedListBoxCategoria.HorizontalScrollbar = true;
+            this.checkedListBoxCategoria.Location = new System.Drawing.Point(3, 245);
+            this.checkedListBoxCategoria.Name = "checkedListBoxCategoria";
+            this.checkedListBoxCategoria.ScrollAlwaysVisible = true;
+            this.checkedListBoxCategoria.Size = new System.Drawing.Size(134, 162);
+            this.checkedListBoxCategoria.TabIndex = 4;
+            this.checkedListBoxCategoria.ThreeDCheckBoxes = true;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(3, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 18);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Contas";
+            // 
+            // checkedListBoxConta
+            // 
+            this.checkedListBoxConta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkedListBoxConta.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBoxConta.FormattingEnabled = true;
+            this.checkedListBoxConta.HorizontalScrollbar = true;
+            this.checkedListBoxConta.Location = new System.Drawing.Point(3, 40);
+            this.checkedListBoxConta.Name = "checkedListBoxConta";
+            this.checkedListBoxConta.ScrollAlwaysVisible = true;
+            this.checkedListBoxConta.Size = new System.Drawing.Size(134, 162);
+            this.checkedListBoxConta.TabIndex = 2;
+            this.checkedListBoxConta.ThreeDCheckBoxes = true;
+            this.checkedListBoxConta.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxConta_SelectedIndexChanged);
             // 
             // tableLayoutPanelAcoes
             // 
@@ -344,162 +416,111 @@ namespace Barros.FinanceControl.View
             this.label1.Text = "Campo:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // tableLayoutPanelContaCategoria
+            // tableLayoutPanelContainer
             // 
-            this.tableLayoutPanelContaCategoria.ColumnCount = 1;
-            this.tableLayoutPanelContaCategoria.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelContaCategoria.Controls.Add(this.label6, 0, 2);
-            this.tableLayoutPanelContaCategoria.Controls.Add(this.checkedListBoxCategoria, 0, 3);
-            this.tableLayoutPanelContaCategoria.Controls.Add(this.label3, 0, 0);
-            this.tableLayoutPanelContaCategoria.Controls.Add(this.checkedListBoxConta, 0, 1);
-            this.tableLayoutPanelContaCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelContaCategoria.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanelContaCategoria.Name = "tableLayoutPanelContaCategoria";
-            this.tableLayoutPanelContaCategoria.RowCount = 4;
-            this.tableLayoutPanelContainer.SetRowSpan(this.tableLayoutPanelContaCategoria, 2);
-            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
-            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelContaCategoria.Size = new System.Drawing.Size(140, 410);
-            this.tableLayoutPanelContaCategoria.TabIndex = 2;
+            this.tableLayoutPanelContainer.ColumnCount = 2;
+            this.tableLayoutPanelContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.37628F));
+            this.tableLayoutPanelContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.62372F));
+            this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelAcoes, 0, 2);
+            this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelContaCategoria, 0, 0);
+            this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelFiltro, 1, 0);
+            this.tableLayoutPanelContainer.Controls.Add(this.tableLayoutPanelConteudo, 1, 1);
+            this.tableLayoutPanelContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelContainer.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelContainer.Name = "tableLayoutPanelContainer";
+            this.tableLayoutPanelContainer.RowCount = 3;
+            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelContainer.Size = new System.Drawing.Size(684, 536);
+            this.tableLayoutPanelContainer.TabIndex = 0;
             // 
-            // label6
+            // tableLayoutPanelConteudo
             // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(3, 214);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 18);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Categorias";
+            this.tableLayoutPanelConteudo.ColumnCount = 1;
+            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelConteudo.Controls.Add(this.transacaoDataGridView, 0, 0);
+            this.tableLayoutPanelConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelConteudo.Location = new System.Drawing.Point(149, 40);
+            this.tableLayoutPanelConteudo.Name = "tableLayoutPanelConteudo";
+            this.tableLayoutPanelConteudo.RowCount = 2;
+            this.tableLayoutPanelConteudo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.67561F));
+            this.tableLayoutPanelConteudo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.3244F));
+            this.tableLayoutPanelConteudo.Size = new System.Drawing.Size(532, 373);
+            this.tableLayoutPanelConteudo.TabIndex = 4;
             // 
-            // checkedListBoxCategoria
+            // transacaoDataGridView
             // 
-            this.checkedListBoxCategoria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxCategoria.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBoxCategoria.FormattingEnabled = true;
-            this.checkedListBoxCategoria.HorizontalScrollbar = true;
-            this.checkedListBoxCategoria.Location = new System.Drawing.Point(3, 245);
-            this.checkedListBoxCategoria.Name = "checkedListBoxCategoria";
-            this.checkedListBoxCategoria.ScrollAlwaysVisible = true;
-            this.checkedListBoxCategoria.Size = new System.Drawing.Size(134, 162);
-            this.checkedListBoxCategoria.TabIndex = 4;
-            this.checkedListBoxCategoria.ThreeDCheckBoxes = true;
+            this.transacaoDataGridView.AutoGenerateColumns = false;
+            this.transacaoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transacaoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataDataGridViewTextBoxColumn,
+            this.descricaoDataGridViewTextBoxColumn,
+            this.categoriaDataGridViewTextBoxColumn,
+            this.contaDataGridViewTextBoxColumn,
+            this.valorDataGridViewTextBoxColumn,
+            this.Saldo});
+            this.transacaoDataGridView.DataSource = this.transacaoBindingSource;
+            this.transacaoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.transacaoDataGridView.Location = new System.Drawing.Point(3, 3);
+            this.transacaoDataGridView.Name = "transacaoDataGridView";
+            this.transacaoDataGridView.Size = new System.Drawing.Size(526, 279);
+            this.transacaoDataGridView.TabIndex = 0;
+            this.transacaoDataGridView.RowPostPaint += new System.Windows.Forms.DataGridViewRowPostPaintEventHandler(this.transacaoDataGridView_RowPostPaint);
             // 
-            // label3
+            // Saldo
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(3, 9);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 18);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Contas";
+            dataGridViewCellStyle3.Format = "C2";
+            this.Saldo.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Saldo.HeaderText = "Saldo";
+            this.Saldo.Name = "Saldo";
+            this.Saldo.ReadOnly = true;
+            this.Saldo.Width = 175;
             // 
-            // checkedListBoxConta
+            // dataDataGridViewTextBoxColumn
             // 
-            this.checkedListBoxConta.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.checkedListBoxConta.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkedListBoxConta.FormattingEnabled = true;
-            this.checkedListBoxConta.HorizontalScrollbar = true;
-            this.checkedListBoxConta.Location = new System.Drawing.Point(3, 40);
-            this.checkedListBoxConta.Name = "checkedListBoxConta";
-            this.checkedListBoxConta.ScrollAlwaysVisible = true;
-            this.checkedListBoxConta.Size = new System.Drawing.Size(134, 162);
-            this.checkedListBoxConta.TabIndex = 2;
-            this.checkedListBoxConta.ThreeDCheckBoxes = true;
-            this.checkedListBoxConta.SelectedIndexChanged += new System.EventHandler(this.checkedListBoxConta_SelectedIndexChanged);
+            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            dataGridViewCellStyle1.Format = "d";
+            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
             // 
-            // tableLayoutPanelFiltro
+            // descricaoDataGridViewTextBoxColumn
             // 
-            this.tableLayoutPanelFiltro.ColumnCount = 6;
-            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanelFiltro.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanelFiltro.Controls.Add(this.label7, 0, 0);
-            this.tableLayoutPanelFiltro.Controls.Add(this.label5, 3, 0);
-            this.tableLayoutPanelFiltro.Controls.Add(this.maskedDataFinal, 4, 0);
-            this.tableLayoutPanelFiltro.Controls.Add(this.label4, 1, 0);
-            this.tableLayoutPanelFiltro.Controls.Add(this.maskedDataInicial, 2, 0);
-            this.tableLayoutPanelFiltro.Controls.Add(this.button1, 5, 0);
-            this.tableLayoutPanelFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelFiltro.Location = new System.Drawing.Point(149, 3);
-            this.tableLayoutPanelFiltro.Name = "tableLayoutPanelFiltro";
-            this.tableLayoutPanelFiltro.RowCount = 1;
-            this.tableLayoutPanelFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanelFiltro.Size = new System.Drawing.Size(532, 31);
-            this.tableLayoutPanelFiltro.TabIndex = 3;
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.Width = 250;
             // 
-            // label7
+            // categoriaDataGridViewTextBoxColumn
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 6);
-            this.label7.Name = "label7";
-            this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label7.Size = new System.Drawing.Size(76, 18);
-            this.label7.TabIndex = 5;
-            this.label7.Text = "Filtro:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
+            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
+            this.categoriaDataGridViewTextBoxColumn.Width = 150;
             // 
-            // label5
+            // contaDataGridViewTextBoxColumn
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(265, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(84, 16);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Data Final:";
+            this.contaDataGridViewTextBoxColumn.DataPropertyName = "Conta";
+            this.contaDataGridViewTextBoxColumn.HeaderText = "Conta";
+            this.contaDataGridViewTextBoxColumn.Name = "contaDataGridViewTextBoxColumn";
+            this.contaDataGridViewTextBoxColumn.Width = 150;
             // 
-            // maskedDataFinal
+            // valorDataGridViewTextBoxColumn
             // 
-            this.maskedDataFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedDataFinal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedDataFinal.Location = new System.Drawing.Point(355, 4);
-            this.maskedDataFinal.Mask = "00/00/0000";
-            this.maskedDataFinal.Name = "maskedDataFinal";
-            this.maskedDataFinal.Size = new System.Drawing.Size(84, 22);
-            this.maskedDataFinal.TabIndex = 3;
+            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle2.Format = "C2";
+            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
+            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
+            this.valorDataGridViewTextBoxColumn.Width = 150;
             // 
-            // label4
+            // transacaoBindingSource
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(85, 7);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Data Inicial:";
-            // 
-            // maskedDataInicial
-            // 
-            this.maskedDataInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.maskedDataInicial.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedDataInicial.Location = new System.Drawing.Point(175, 4);
-            this.maskedDataInicial.Mask = "00/00/0000";
-            this.maskedDataInicial.Name = "maskedDataInicial";
-            this.maskedDataInicial.Size = new System.Drawing.Size(84, 22);
-            this.maskedDataInicial.TabIndex = 1;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(445, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(84, 25);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "F9 - Filtrar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.transacaoBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Transacao);
             // 
             // FormTransacaoView
             // 
@@ -520,24 +541,24 @@ namespace Barros.FinanceControl.View
             this.Text = "Transações Cadastradas";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormTransacaoView_FormClosing);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormClienteView_KeyDown);
-            this.tableLayoutPanelContainer.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
+            this.tableLayoutPanelFiltro.ResumeLayout(false);
+            this.tableLayoutPanelFiltro.PerformLayout();
+            this.tableLayoutPanelContaCategoria.ResumeLayout(false);
+            this.tableLayoutPanelContaCategoria.PerformLayout();
             this.tableLayoutPanelAcoes.ResumeLayout(false);
             this.tableLayoutPanelBotoes.ResumeLayout(false);
             this.tableLayoutPanelPesquisa.ResumeLayout(false);
             this.tableLayoutPanelPesquisa.PerformLayout();
-            this.tableLayoutPanelContaCategoria.ResumeLayout(false);
-            this.tableLayoutPanelContaCategoria.PerformLayout();
-            this.tableLayoutPanelFiltro.ResumeLayout(false);
-            this.tableLayoutPanelFiltro.PerformLayout();
+            this.tableLayoutPanelContainer.ResumeLayout(false);
+            this.tableLayoutPanelConteudo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContainer;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn enderecoDataGridViewTextBoxColumn;
@@ -549,6 +570,20 @@ namespace Barros.FinanceControl.View
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn celularDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource transacaoBindingSource;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelFiltro;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.MaskedTextBox maskedDataFinal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.MaskedTextBox maskedDataInicial;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContaCategoria;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckedListBox checkedListBoxCategoria;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.CheckedListBox checkedListBoxConta;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContainer;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelAcoes;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelBotoes;
         private System.Windows.Forms.Button btnFechar;
@@ -557,29 +592,18 @@ namespace Barros.FinanceControl.View
         private System.Windows.Forms.Button btnIncluir;
         private System.Windows.Forms.Button btnAjuda;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelPesquisa;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cbxCampoSelecionado;
         private System.Windows.Forms.TextBox txtBusca;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelContaCategoria;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbxCampoSelecionado;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelConteudo;
         private System.Windows.Forms.DataGridView transacaoDataGridView;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelFiltro;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox maskedDataFinal;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedDataInicial;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.BindingSource transacaoBindingSource;
-        private System.Windows.Forms.CheckedListBox checkedListBoxConta;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckedListBox checkedListBoxCategoria;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Saldo;
 
     }
 }

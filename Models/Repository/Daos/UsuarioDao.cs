@@ -106,6 +106,7 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
                 "id number not null," +
                 "descricao varchar2(100) not null," +
                 "saldoInicial number(9,2) default 0.0," +
+                "dataSaldoInicial date default sysdate,"+
                 "constraint pk_conta_id primary key(id))";
         }
 

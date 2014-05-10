@@ -10,15 +10,14 @@ namespace Barros.FinanceControl.Models.Repository.Mapping {
 
             Id(c => c.Id, "id").GeneratedBy.Sequence("SEQ_CONTA_ID");
             Map(c => c.Descricao).Column("descricao").Length(100).Not.Nullable();
-            Map(c => c.SaldoInicial).Column("saldoInicial");            
+            Map(c => c.SaldoInicial).Column("saldoInicial");
+            Map(c => c.DataSaldoInicial).Column("dataSaldoInicial");
 
-            //HasMany(x => x.Veiculos)
-            //        .LazyLoad()
-            //        .Inverse()
-            //        .KeyColumn("cliente_id")
-            //        .Cascade.SaveUpdate()
-            //        .Fetch.Subselect()
-            //        .AsList();
+            HasMany(x => x.Transacoes)
+                    .LazyLoad()                    
+                    .KeyColumn("conta_id")
+            //        .Cascade.SaveUpdate()                    
+                    .AsList();
         }
     }   
 }

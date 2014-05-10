@@ -74,7 +74,7 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
 
         private IQuery createQueryWithNamedParameter(String hql, Dictionary<String, Object> parans) {
             IQuery query = this.session.CreateQuery(hql);
-            string[] keys = parans.Keys.As<string[]>();
+            Dictionary<string, object>.KeyCollection keys = parans.Keys;
             foreach (string key in keys)
                 query.SetParameter(key, parans[key]);
             return query;

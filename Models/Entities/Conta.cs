@@ -7,10 +7,56 @@ using System.Threading.Tasks;
 namespace Barros.FinanceControl.Models.Entities {
     
     public class Conta {
+        private IList<Transacao> transacoes = new List<Transacao>();
+        private double saldo;
+
         public virtual int Id { get; set; }        
         public virtual string Descricao { get; set; }
         public virtual double SaldoInicial { get; set; }
-        public virtual double Saldo { get; set; }
+        public virtual DateTime DataSaldoInicial { get; set; }
+        public virtual IList<Transacao> Transacoes { 
+            get {return transacoes;}
+            set { transacoes = value; }
+        }
+
+        public virtual double getSaldoDoDia(DateTime dia) {
+            List<Transacao> transacoesDoDia = getTransacaoList().FindAll(c => c.Data.Equals(dia));
+
+            foreach (Transacao transacao in transacoesDoDia)
+                saldo += transacao.Valor;
+            
+            return saldo;
+        }
+
+        public virtual double getSaldoAntesDaTransacao(Transacao transacao) {
+            List<Transacao> transacoesAntesDaTransacao = getTransacaoList().FindAll(c => c.Id < transacao.Id);
+
+            foreach (Transacao t in transacoesAntesDaTransacao)
+                saldo += t.Valor;
+
+            return SaldoInicial + saldo;
+        }
+
+        public virtual double getSaldoAposATransacao(Transacao transacao) {
+            double antesDaTransacao = getSaldoAntesDaTransacao(transacao);
+            return antesDaTransacao + transacao.Valor;
+        }
+
+        public virtual double getSaldoDoPeriodo(DateTime dataInicial, DateTime dataFinal) {
+            if (dataFinal < dataInicial)
+                throw new ArgumentException("Data final não pode ser menor que data inicial.");
+
+            List<Transacao> transacoesDoPerido = getTransacaoList().FindAll(c => c.Data >= dataInicial && c.Data <= dataFinal);
+
+            foreach (Transacao t in transacoesDoPerido)
+                saldo += t.Valor;
+
+            return SaldoInicial + saldo;
+        }
+
+        private List<Transacao> getTransacaoList() {
+            return (List<Transacao>)transacoes;
+        }
 
         public override string ToString(){
             return Descricao;// +" R$:" + String.Format("{0:0.00}", Saldo);

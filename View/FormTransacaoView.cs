@@ -6,25 +6,27 @@ using Tecnomotor.InjectorTestPC.Models.Repositories;
 using Barros.FinanceControl.Models.Entities;
 using System.Collections.Generic;
 using Barros.FinanceControl.Utils;
+using Barros.FinanceControl.Controller;
 
 namespace Barros.FinanceControl.View {
     
     public partial class FormTransacaoView : Form {
-        private TransacaoService transacaoService;        
+        private TransacaoService transacaoService;
+        private TransacaoController controller;
 
         public FormTransacaoView() {
             InitializeComponent();
             transacaoService = new TransacaoService(new TransacaoDao(
                             FluentlySessionFactory.getInstanceFor(
                                 UsuarioLogado.getInstance().getUsuario()).Session));
-            
-            cbxCampoSelecionado.DataSource = transacaoService.getAllPropertiesWithoutType(
-                        typeof(Conta), typeof(Categoria));
 
+            controller = new TransacaoController(transacaoService);                      
             loadCheckedListBoxConta();            
-            loadCheckedListBoxCategoria();            
+            loadCheckedListBoxCategoria();
+            maskedDataInicial.Text = DateTime.Now.ToString("dd/MM/yyyy");
             maskedDataFinal.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            atualizaGrid();
+            cbxCampoSelecionado.DataSource = transacaoService.getAllPropertiesWithoutType(
+                       typeof(Conta), typeof(Categoria));
         }
 
         private void loadCheckedListBoxConta() {
@@ -49,7 +51,9 @@ namespace Barros.FinanceControl.View {
         }
 
         private void atualizaGrid() {
-            transacaoBindingSource.DataSource = transacaoService.getAllListUntilDate(DateTime.Now);            
+            controller.DataInicial = DateTime.Parse(maskedDataInicial.Text);
+            controller.DataFinal = DateTime.Parse(maskedDataFinal.Text);
+            transacaoBindingSource.DataSource = controller.getTodasTransacao();                    
         }
 
         private Transacao getTransacaoSelecionada() {
@@ -57,9 +61,6 @@ namespace Barros.FinanceControl.View {
             return ((IList<Transacao>)transacaoBindingSource.DataSource)[linhaSelecionada];
         }
 
-        private void addFiltro(Conta conta) { 
-            
-        }
 
         private void FormClienteView_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -144,9 +145,16 @@ namespace Barros.FinanceControl.View {
         {
             if (checkedListBoxConta.GetItemChecked(checkedListBoxConta.SelectedIndex) ) {
                 foreach (Conta itemChecked in checkedListBoxConta.CheckedItems) {
-                    MessageBox.Show(itemChecked.ToString());
+                    controller.addFiltro(itemChecked);
+                    atualizaGrid();
                 }
             }
+        }
+
+        private void transacaoDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
+        {                       
+            Transacao transacao = ((IList<Transacao>)transacaoBindingSource.DataSource)[e.RowIndex];            
+            transacaoDataGridView.Rows[e.RowIndex].Cells["Saldo"].Value = transacao.Conta.getSaldoAposATransacao(transacao);
         }        
         
     }

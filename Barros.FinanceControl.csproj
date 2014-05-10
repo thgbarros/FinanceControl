@@ -86,6 +86,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\TransacaoController.cs" />
     <Compile Include="Models\Entities\Categoria.cs" />
     <Compile Include="Models\Entities\Conta.cs" />
     <Compile Include="Models\Entities\Transacao.cs" />
