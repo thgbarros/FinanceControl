@@ -17,7 +17,7 @@ namespace Barros.FinanceControl.Models.Repository.Mapping {
                     .LazyLoad()                    
                     .KeyColumn("conta_id")
             //        .Cascade.SaveUpdate()                    
-                    .AsList();
+                    .AsBag();
         }
     }   
 }

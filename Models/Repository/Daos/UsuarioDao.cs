@@ -81,7 +81,7 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
                         "id number not null," +
                         "descricao varchar2(100) not null," +
                         "categoria_pai number," +
-                        "tipo_categoria number not null" +
+                        "tipo_categoria number not null," +
                         "constraint pk_categoria_id primary key(id)," +
                         "constraint fk_categoria_pai foreign key(categoria_pai) references " + usuario.Login + ".categoria(id))";
 

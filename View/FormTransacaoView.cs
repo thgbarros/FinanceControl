@@ -152,9 +152,11 @@ namespace Barros.FinanceControl.View {
         }
 
         private void transacaoDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {                       
-            Transacao transacao = ((IList<Transacao>)transacaoBindingSource.DataSource)[e.RowIndex];            
-            transacaoDataGridView.Rows[e.RowIndex].Cells["Saldo"].Value = transacao.Conta.getSaldoAposATransacao(transacao);
+        {
+            if (transacaoBindingSource.Count > 0) {
+                Transacao transacao = ((IList<Transacao>)transacaoBindingSource.DataSource) [e.RowIndex];
+                transacaoDataGridView.Rows[e.RowIndex].Cells["Saldo"].Value = transacao.Conta.getSaldoAposATransacao(transacao);
+            }
         }        
         
     }
