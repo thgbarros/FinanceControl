@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using Barros.FinanceControl.Models.Entities;
 using Barros.FinanceControl.Models.Service;
 using System.Text.RegularExpressions;
+using Barros.FinanceControl.Utils;
 
 namespace Barros.FinanceControl.View
 {
@@ -15,18 +16,8 @@ namespace Barros.FinanceControl.View
 
             txtId.Text = conta.Id.ToString();
             txtDescricao.Text = conta.Descricao;
-            txtSaldo.Text = formatSaldo(conta.SaldoInicial);
-        }
-
-        private String formatSaldo(double saldo) { 
-            try {
-                return String.Format("{0:n}", saldo);
-            } catch (FormatException fe) {
-                MessageBox.Show("Valor do saldo incial inválido!", "ERROR",
-                                MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return "0,00";
-            }
-        }
+            txtSaldo.Text = CurrencyFormat.doubleToString(conta.SaldoInicial);
+        }        
 
         public FormConta(ContaService contaService){
             InitializeComponent();
@@ -62,7 +53,8 @@ namespace Barros.FinanceControl.View
 
         private void txtSaldo_Leave(object sender, EventArgs e)
         {
-            txtSaldo.Text = formatSaldo(Convert.ToDouble(txtSaldo.Text));           
+            if (txtSaldo.Text != "")
+               txtSaldo.Text = CurrencyFormat.doubleToString(Convert.ToDouble(txtSaldo.Text));           
         }
 
     }

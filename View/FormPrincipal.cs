@@ -86,15 +86,20 @@ namespace Barros.FinanceControl{
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            UsuarioLogado.getInstance().logout();           
-            FormLogin formLogin = new FormLogin();
-            formLogin.ShowDialog();
+            Application.Exit();
         }
 
         private void btnTransacoes_Click(object sender, EventArgs e)
         {
             tableLayoutPanelBotoes.Visible = false;
             transacoesToolStripMenuItem_Click(null, null);
+        }
+
+        private void logofToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UsuarioLogado.getInstance().logout();
+            FormLogin formLogin = new FormLogin();
+            formLogin.ShowDialog();
         }
        
     }

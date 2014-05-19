@@ -112,6 +112,7 @@
     <Compile Include="Models\Service\ContaService.cs" />
     <Compile Include="Models\Service\TransacaoService.cs" />
     <Compile Include="Models\Service\UsuarioService.cs" />
+    <Compile Include="Utils\CurrenceFormat.cs" />
     <Compile Include="Utils\IListConverter.cs" />
     <Compile Include="Utils\MD5EncryptHandler.cs" />
     <Compile Include="View\FormAguarde.cs">

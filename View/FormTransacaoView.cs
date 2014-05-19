@@ -13,6 +13,7 @@ namespace Barros.FinanceControl.View {
     public partial class FormTransacaoView : Form {
         private TransacaoService transacaoService;
         private TransacaoController controller;
+        private int indexAux = 0;
 
         public FormTransacaoView() {
             InitializeComponent();
@@ -33,11 +34,27 @@ namespace Barros.FinanceControl.View {
             ContaService contaService = new ContaService(new ContaDao(
                                 FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
                                     .getUsuario()).Session));
+            checkedListBoxConta.Items.Clear();
             checkedListBoxConta.Items.AddRange(
                     IListConverter<Conta>.toList(contaService
                             .getAllListOrderByAsc("Descricao")).ToArray());
             contaService = null;
             
+        }
+
+        private void atualizaSaldo() {
+            loadCheckedListBoxConta();
+            int totalContasSelecionada = checkedListBoxConta.SelectedItems.Count;
+            double saldoTotal = 0;
+            if (totalContasSelecionada != 0) {
+                for (int i = 0; i < totalContasSelecionada; i++)
+                    saldoTotal += ((Conta)checkedListBoxConta.SelectedItems[i]).getSaldo();
+            } else {
+                totalContasSelecionada = checkedListBoxConta.Items.Count;
+                for (int i = 0; i < totalContasSelecionada; i++)
+                    saldoTotal += ((Conta)checkedListBoxConta.Items[i]).getSaldo();
+            }
+            lblSaldoTotal.Text = CurrencyFormat.doubleToString(saldoTotal);
         }
 
         private void loadCheckedListBoxCategoria() {
@@ -53,7 +70,9 @@ namespace Barros.FinanceControl.View {
         private void atualizaGrid() {
             controller.DataInicial = DateTime.Parse(maskedDataInicial.Text);
             controller.DataFinal = DateTime.Parse(maskedDataFinal.Text);
-            transacaoBindingSource.DataSource = controller.getTodasTransacao();                    
+            transacaoBindingSource.DataSource = controller.getTodasTransacao();
+            atualizaSaldo();
+           
         }
 
         private Transacao getTransacaoSelecionada() {
@@ -149,15 +168,7 @@ namespace Barros.FinanceControl.View {
                     atualizaGrid();
                 }
             }
-        }
-
-        private void transacaoDataGridView_RowPostPaint(object sender, DataGridViewRowPostPaintEventArgs e)
-        {
-            if (transacaoBindingSource.Count > 0) {
-                Transacao transacao = ((IList<Transacao>)transacaoBindingSource.DataSource) [e.RowIndex];
-                transacaoDataGridView.Rows[e.RowIndex].Cells["Saldo"].Value = transacao.Conta.getSaldoAposATransacao(transacao);
-            }
-        }        
+        }    
         
     }
 }

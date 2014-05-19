@@ -58,6 +58,7 @@
             this.btnTransacoes = new System.Windows.Forms.Button();
             this.btnContas = new System.Windows.Forms.Button();
             this.btnUsuarios = new System.Windows.Forms.Button();
+            this.logofToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanelBotoes.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -86,6 +87,7 @@
             this.contasToolStripMenuItem,
             this.categoriasToolStripMenuItem,
             this.toolStripMenuItem1,
+            this.logofToolStripMenuItem,
             this.sairToolStripMenuItem});
             this.arquivoToolStripMenuItem.Name = "arquivoToolStripMenuItem";
             this.arquivoToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
@@ -94,33 +96,33 @@
             // usuarioToolStripMenuItem
             // 
             this.usuarioToolStripMenuItem.Name = "usuarioToolStripMenuItem";
-            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.usuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuarioToolStripMenuItem.Text = "&Usuários";
             this.usuarioToolStripMenuItem.Click += new System.EventHandler(this.usuarioToolStripMenuItem_Click);
             // 
             // contasToolStripMenuItem
             // 
             this.contasToolStripMenuItem.Name = "contasToolStripMenuItem";
-            this.contasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.contasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.contasToolStripMenuItem.Text = "&Contas";
             this.contasToolStripMenuItem.Click += new System.EventHandler(this.contasToolStripMenuItem_Click);
             // 
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(127, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(149, 6);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -311,6 +313,13 @@
             this.btnUsuarios.UseVisualStyleBackColor = true;
             this.btnUsuarios.Click += new System.EventHandler(this.button1_Click);
             // 
+            // logofToolStripMenuItem
+            // 
+            this.logofToolStripMenuItem.Name = "logofToolStripMenuItem";
+            this.logofToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.logofToolStripMenuItem.Text = "Logout";
+            this.logofToolStripMenuItem.Click += new System.EventHandler(this.logofToolStripMenuItem_Click);
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -370,6 +379,7 @@
         private System.Windows.Forms.ToolStripMenuItem orçamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mensalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anualToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logofToolStripMenuItem;
 
 
 
