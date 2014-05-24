@@ -19,6 +19,17 @@ namespace Barros.FinanceControl.Models.Entities {
             set { transacoes = value; }
         }
 
+        public virtual double Saldo {
+            get {
+                saldo = 0;
+                foreach (Transacao transacao in transacoes)
+                    saldo += transacao.Valor;
+
+                return SaldoInicial + saldo;
+            }
+            set { saldo = value; }
+        }
+
         public virtual double getSaldoDoDia(DateTime dia) {
             saldo = 0;
             List<Transacao> transacoesDoDia = getTransacaoList().FindAll(c => c.Data.Equals(dia));
@@ -27,15 +38,7 @@ namespace Barros.FinanceControl.Models.Entities {
                 saldo += transacao.Valor;
             
             return saldo;
-        }
-
-        public virtual double getSaldo() {
-            saldo = 0;
-            foreach (Transacao transacao in transacoes)
-                saldo += transacao.Valor;
-
-            return saldo;
-        }
+        }        
 
         public virtual double getSaldoAntesDaTransacao(Transacao transacao) {
             saldo = 0;
@@ -63,6 +66,10 @@ namespace Barros.FinanceControl.Models.Entities {
                 saldo += t.Valor;
 
             return SaldoInicial + saldo;
+        }
+
+        public virtual double getSaldoDesdeOInicioAteDataAtual() {
+            return getSaldoDoPeriodo(this.DataSaldoInicial, DateTime.Now);
         }
 
         private List<Transacao> getTransacaoList() {            

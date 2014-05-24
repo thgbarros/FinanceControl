@@ -23,12 +23,12 @@ namespace Barros.FinanceControl.View {
             cbxCampoSelecionado.SelectedIndex = 0;            
         }            
 
-        private void atualizaGrid() {
+        private void atualizaGrid() {            
             categoriaBindingSource.DataSource = categoriaService.getAllListOrderBy(cbxCampoSelecionado.Text);
         }
 
         private Categoria getCategoriaSelecionada() {
-            int linhaSelecionada = categoriaDataGridView.CurrentRow.Index;
+            int linhaSelecionada = categoriaDataGridView.CurrentRow.Index;           
             return ((IList<Categoria>)categoriaBindingSource.DataSource)[linhaSelecionada];
         }  
 
