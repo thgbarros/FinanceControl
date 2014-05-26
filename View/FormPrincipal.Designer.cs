@@ -41,8 +41,6 @@
             this.remotoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transacoesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.orçamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mensalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.anualToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatórioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tudoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosPorPeríodoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,30 +143,16 @@
             // transacoesToolStripMenuItem
             // 
             this.transacoesToolStripMenuItem.Name = "transacoesToolStripMenuItem";
-            this.transacoesToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.transacoesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.transacoesToolStripMenuItem.Text = "&Transações";
             this.transacoesToolStripMenuItem.Click += new System.EventHandler(this.transacoesToolStripMenuItem_Click);
             // 
             // orçamentoToolStripMenuItem
             // 
-            this.orçamentoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mensalToolStripMenuItem,
-            this.anualToolStripMenuItem});
             this.orçamentoToolStripMenuItem.Name = "orçamentoToolStripMenuItem";
-            this.orçamentoToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.orçamentoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.orçamentoToolStripMenuItem.Text = "Orçamento";
-            // 
-            // mensalToolStripMenuItem
-            // 
-            this.mensalToolStripMenuItem.Name = "mensalToolStripMenuItem";
-            this.mensalToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.mensalToolStripMenuItem.Text = "&Mensal";
-            // 
-            // anualToolStripMenuItem
-            // 
-            this.anualToolStripMenuItem.Name = "anualToolStripMenuItem";
-            this.anualToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.anualToolStripMenuItem.Text = "&Anual";
+            this.orçamentoToolStripMenuItem.Click += new System.EventHandler(this.orçamentoToolStripMenuItem_Click);
             // 
             // relatórioToolStripMenuItem
             // 
@@ -378,8 +362,6 @@
         private System.Windows.Forms.Button btnContas;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.ToolStripMenuItem orçamentoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mensalToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem anualToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logofToolStripMenuItem;
 
 

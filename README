@@ -1,10 +1,29 @@
 Descrição do Software
 
-Software com propósito de registrar as despesas e receitas do usuário cadastrado. Cada usuário terá seus dados protegidos de forma que outros usuário não possa vê los. Para isso é necessário que o software tenha as seguintes funcionalidades: 
+Software com propósito de registrar as despesas e receitas do usuário cadastrado. 
+Cada usuário terá seus dados protegidos de forma que outros usuário não possa vê los. 
+Para isso é necessário que o software tenha as seguintes funcionalidades: 
+	-Cadastro de usuário: Informações usada para fazer login no sistema e restringir registros.
+	-Cadastro de Contas: Informações usada para receber transações. Ex.: Conta Corrente, Banco Itaú, Etc.
+	-Cadastro de Categorias: Informações usada para filtrar transações.
+	-Cadastro de Transações: Informações usadas para adicionar transações de receitas, despesas e se der tempo transferências entre contas.
+	-Cadastro de Orçamento, mensal e anual, o qual consiste no usuário definir uma meta de valor embasado nas categorias cadastradas no sistema.
 
-Cadastro de usuário: Informações usada para fazer login no sistema e restringir registros.
-Cadastro de Contas: Informações usada para receber transações. Ex.: Conta Corrente, Banco Itaú, Etc.
-Cadastro de Categorias: Informações usada para filtrar transações.
-Cadastro de Transações: Informações usadas para adicionar transações de receitas, despesas e se der tempo transferências entre contas.
+Programas necessário para execução do sistema:
 
-Outra funcionalidade que o sistema terá é o cadastro de Orçamento, mensal e anual, o qual consiste no usuário definir uma meta de valor embasado nas categorias cadastradas no sistema.
+-Oracle 11G Express;
+
+Executando o programa pela 1° Vez.
+
+-O software irá pedir para o usuário logar, para isso basta efeturar o login 
+com o usuário sys e a senha definida para esse tipo de usuário na instalação do oracle 11G express;
+-Abrir o menu de cadastro de usuários, clicar no botão inserir e informar um nome de usuário válido, e a seu respectiva senha;
+-Efeturar o logof no sistema, a tela de login irá ser exibida, após efetuar o login com o usúario e a senha criado no passo anterior.
+-O acesso as outras funcionalidaes do sistema será liberado para o usuário.
+
+P.S.1: O usuário sys, não tem acesso a todos os cadastros do sistema, somente a criação de usuário.
+P.S.2: Os usuário criados pelo sys não terá acesso a tela de cadastro de usuário.
+
+
+
+

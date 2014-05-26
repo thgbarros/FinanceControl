@@ -85,6 +85,12 @@ namespace Barros.FinanceControl{
             showMdiForm(new FormTransacaoView());
         }
 
+        private void orçamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormOrcamentoView view = new FormOrcamentoView();
+            showMdiForm(view);
+        }
+
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -101,6 +107,7 @@ namespace Barros.FinanceControl{
             FormLogin formLogin = new FormLogin();
             formLogin.ShowDialog();
         }
+        
        
     }
 }

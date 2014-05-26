@@ -1,10 +1,12 @@
-﻿
+﻿using System;
+
 namespace Barros.FinanceControl.Models.Entities {
     
     public enum TipoOrcamento{
         MENSAL, ANUAL
     }
 
+    [Serializable]
     public class Orcamento {
 
         public virtual int Id { get; set; }

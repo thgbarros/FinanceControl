@@ -18,6 +18,9 @@ namespace Barros.FinanceControl.View {
             txtDescricao.Text = categoria.Descricao;   
             if (categoria.CategoriaPai != null)         
                 cbxCategoriaPai.SelectedItem = categoria.CategoriaPai;
+                        
+            if (categoria.TipoCategoria.Equals(TipoCategoria.DESPESA))
+                rbTipoDespesa.Checked = true;                
         }
 
         public FormCategoria(CategoriaService categoriaService) {

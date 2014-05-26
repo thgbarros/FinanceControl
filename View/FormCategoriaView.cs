@@ -32,11 +32,6 @@ namespace Barros.FinanceControl.View {
             return ((IList<Categoria>)categoriaBindingSource.DataSource)[linhaSelecionada];
         }  
 
-        private void FormClienteView_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-
         private void btnIncluir_Click(object sender, EventArgs e)
         {
             FormCategoria fu = new FormCategoria(categoriaService);

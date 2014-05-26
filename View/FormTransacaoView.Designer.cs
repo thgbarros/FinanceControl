@@ -36,14 +36,14 @@ namespace Barros.FinanceControl.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransacaoView));
             this.tableLayoutPanelFiltro = new System.Windows.Forms.TableLayoutPanel();
@@ -74,21 +74,21 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelConteudo = new System.Windows.Forms.TableLayoutPanel();
             this.transacaoDataGridView = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblSaldoTotal = new System.Windows.Forms.Label();
-            this.dataGridViewContaSaldo = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.DataSaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblSaldoTotal = new System.Windows.Forms.Label();
+            this.dataGridViewContaSaldo = new System.Windows.Forms.DataGridView();
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DataSaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SsaldoAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label8 = new System.Windows.Forms.Label();
             this.tableLayoutPanelFiltro.SuspendLayout();
             this.tableLayoutPanelContaCategoria.SuspendLayout();
             this.tableLayoutPanelAcoes.SuspendLayout();
@@ -97,9 +97,9 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContainer.SuspendLayout();
             this.tableLayoutPanelConteudo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContaSaldo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -499,86 +499,9 @@ namespace Barros.FinanceControl.View
             this.transacaoDataGridView.Location = new System.Drawing.Point(3, 3);
             this.transacaoDataGridView.Name = "transacaoDataGridView";
             this.transacaoDataGridView.ReadOnly = true;
+            this.transacaoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.transacaoDataGridView.Size = new System.Drawing.Size(652, 209);
             this.transacaoDataGridView.TabIndex = 0;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.45627F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.54373F));
-            this.tableLayoutPanel1.Controls.Add(this.lblSaldoTotal, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewContaSaldo, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 218);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(652, 152);
-            this.tableLayoutPanel1.TabIndex = 1;
-            // 
-            // lblSaldoTotal
-            // 
-            this.lblSaldoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblSaldoTotal.AutoSize = true;
-            this.lblSaldoTotal.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaldoTotal.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblSaldoTotal.Location = new System.Drawing.Point(397, 109);
-            this.lblSaldoTotal.Name = "lblSaldoTotal";
-            this.lblSaldoTotal.Size = new System.Drawing.Size(252, 34);
-            this.lblSaldoTotal.TabIndex = 3;
-            this.lblSaldoTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // dataGridViewContaSaldo
-            // 
-            this.dataGridViewContaSaldo.AutoGenerateColumns = false;
-            this.dataGridViewContaSaldo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewContaSaldo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Descricao,
-            this.DataSaldoInicial,
-            this.SaldoInicial,
-            this.SsaldoAtual});
-            this.tableLayoutPanel1.SetColumnSpan(this.dataGridViewContaSaldo, 2);
-            this.dataGridViewContaSaldo.DataSource = this.contaBindingSource;
-            this.dataGridViewContaSaldo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewContaSaldo.Location = new System.Drawing.Point(3, 3);
-            this.dataGridViewContaSaldo.Name = "dataGridViewContaSaldo";
-            this.dataGridViewContaSaldo.Size = new System.Drawing.Size(646, 95);
-            this.dataGridViewContaSaldo.TabIndex = 1;
-            // 
-            // label8
-            // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 110);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(388, 32);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Saldo Total:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // DataSaldoInicial
-            // 
-            this.DataSaldoInicial.DataPropertyName = "DataSaldoInicial";
-            dataGridViewCellStyle7.Format = "d";
-            this.DataSaldoInicial.DefaultCellStyle = dataGridViewCellStyle7;
-            this.DataSaldoInicial.HeaderText = "Data Inicial";
-            this.DataSaldoInicial.Name = "DataSaldoInicial";
-            this.DataSaldoInicial.Width = 150;
-            // 
-            // SaldoInicial
-            // 
-            this.SaldoInicial.DataPropertyName = "SaldoInicial";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Format = "C2";
-            this.SaldoInicial.DefaultCellStyle = dataGridViewCellStyle8;
-            this.SaldoInicial.HeaderText = "SaldoInicial";
-            this.SaldoInicial.Name = "SaldoInicial";
-            this.SaldoInicial.ReadOnly = true;
-            this.SaldoInicial.Width = 150;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -638,6 +561,53 @@ namespace Barros.FinanceControl.View
             // 
             this.transacaoBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Transacao);
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.45627F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.54373F));
+            this.tableLayoutPanel1.Controls.Add(this.lblSaldoTotal, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridViewContaSaldo, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 218);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(652, 152);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // lblSaldoTotal
+            // 
+            this.lblSaldoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblSaldoTotal.AutoSize = true;
+            this.lblSaldoTotal.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSaldoTotal.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblSaldoTotal.Location = new System.Drawing.Point(397, 109);
+            this.lblSaldoTotal.Name = "lblSaldoTotal";
+            this.lblSaldoTotal.Size = new System.Drawing.Size(252, 34);
+            this.lblSaldoTotal.TabIndex = 3;
+            this.lblSaldoTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dataGridViewContaSaldo
+            // 
+            this.dataGridViewContaSaldo.AutoGenerateColumns = false;
+            this.dataGridViewContaSaldo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewContaSaldo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Descricao,
+            this.DataSaldoInicial,
+            this.SaldoInicial,
+            this.SsaldoAtual});
+            this.tableLayoutPanel1.SetColumnSpan(this.dataGridViewContaSaldo, 2);
+            this.dataGridViewContaSaldo.DataSource = this.contaBindingSource;
+            this.dataGridViewContaSaldo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewContaSaldo.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewContaSaldo.Name = "dataGridViewContaSaldo";
+            this.dataGridViewContaSaldo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewContaSaldo.Size = new System.Drawing.Size(646, 95);
+            this.dataGridViewContaSaldo.TabIndex = 1;
+            // 
             // Descricao
             // 
             this.Descricao.DataPropertyName = "Descricao";
@@ -649,6 +619,26 @@ namespace Barros.FinanceControl.View
             this.Descricao.Name = "Descricao";
             this.Descricao.ReadOnly = true;
             this.Descricao.Width = 350;
+            // 
+            // DataSaldoInicial
+            // 
+            this.DataSaldoInicial.DataPropertyName = "DataSaldoInicial";
+            dataGridViewCellStyle7.Format = "d";
+            this.DataSaldoInicial.DefaultCellStyle = dataGridViewCellStyle7;
+            this.DataSaldoInicial.HeaderText = "Data Inicial";
+            this.DataSaldoInicial.Name = "DataSaldoInicial";
+            this.DataSaldoInicial.Width = 150;
+            // 
+            // SaldoInicial
+            // 
+            this.SaldoInicial.DataPropertyName = "SaldoInicial";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Format = "C2";
+            this.SaldoInicial.DefaultCellStyle = dataGridViewCellStyle8;
+            this.SaldoInicial.HeaderText = "SaldoInicial";
+            this.SaldoInicial.Name = "SaldoInicial";
+            this.SaldoInicial.ReadOnly = true;
+            this.SaldoInicial.Width = 150;
             // 
             // SsaldoAtual
             // 
@@ -665,6 +655,18 @@ namespace Barros.FinanceControl.View
             // contaBindingSource
             // 
             this.contaBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Conta);
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(3, 110);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(388, 32);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Saldo Total:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormTransacaoView
             // 
@@ -696,10 +698,10 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContainer.ResumeLayout(false);
             this.tableLayoutPanelConteudo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.transacaoDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewContaSaldo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.transacaoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
