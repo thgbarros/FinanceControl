@@ -21,8 +21,13 @@ namespace Barros.FinanceControl.Models.Service {
         public override IList<Transacao> thisValue(string value) {
             if (string.IsNullOrEmpty(value))
                 return base.getAllListOrderBy(field);
-
-            return dao.findByHql("from Transacao c where c." + field + " like ?", "%" + value + "%");
+            
+            if (!field.Equals("Data") && !field.Equals("Valor"))
+                return dao.findByHql("from Transacao c where c." + field + " like ?", "%" + value + "%");
+            else if (field.Equals("Data"))
+                return dao.findByHql("from Transacao c where c." + field + " = ?", DateTime.Parse(value));
+            else
+                return dao.findByHql("from Transacao c where c." + field + " = ?", value);
         }
 
         protected override IList<Transacao> getAllListOrderBy(string field, string orderBy) {
@@ -48,18 +53,38 @@ namespace Barros.FinanceControl.Models.Service {
 
             parans.Add("dataIni", dateInit);
             parans.Add("dataFim", dateFinish);
+            
 
-            foreach (Categoria categoria in categorias) {
-                hql += " and Categoria.id = :catId" + categoria.Id;
+            for (int i = 0; i < categorias.Count; i++ )  {
+                Categoria categoria = categorias[i];
+
+                if (i == 0)
+                    hql += " and (";
+                hql += " Categoria.id =:catId" + categoria.Id;
                 parans.Add("catId" + categoria.Id, categoria.Id);
+
+                if (i < categorias.Count - 1)
+                    hql += " or";
+                else
+                    hql += " )";
+                
             }
 
-            foreach (Conta conta in contas) {
-                hql += " and Conta.id = :contId" + conta.Id;
+            for (int i = 0; i < contas.Count; i++) {
+                Conta conta = contas[i];
+
+                if (i == 0)
+                    hql += " and (";
+                hql += " Conta.id = :contId" + conta.Id;
                 parans.Add("contId" + conta.Id, conta.Id);
+
+                if (i < contas.Count - 1)
+                    hql += " or";
+                else
+                    hql += " )";
             }
 
-            hql += " order by t.Id asc, t.Data asc";
+            hql += " order by t.Data asc, t.Id asc";
 
             return dao.findByHql(hql, parans);
         }

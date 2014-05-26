@@ -36,11 +36,15 @@ namespace Barros.FinanceControl.View
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTransacaoView));
             this.tableLayoutPanelFiltro = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,9 +66,10 @@ namespace Barros.FinanceControl.View
             this.btnIncluir = new System.Windows.Forms.Button();
             this.btnAjuda = new System.Windows.Forms.Button();
             this.tableLayoutPanelPesquisa = new System.Windows.Forms.TableLayoutPanel();
-            this.txtBusca = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.cbxCampoSelecionado = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtBusca = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanelContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelConteudo = new System.Windows.Forms.TableLayoutPanel();
@@ -73,12 +78,13 @@ namespace Barros.FinanceControl.View
             this.lblSaldoTotal = new System.Windows.Forms.Label();
             this.dataGridViewContaSaldo = new System.Windows.Forms.DataGridView();
             this.label8 = new System.Windows.Forms.Label();
+            this.DataSaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.categoriaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.transacaoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SsaldoAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -113,11 +119,11 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelFiltro.Controls.Add(this.maskedDataInicial, 2, 0);
             this.tableLayoutPanelFiltro.Controls.Add(this.btnFiltrar, 5, 0);
             this.tableLayoutPanelFiltro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelFiltro.Location = new System.Drawing.Point(149, 3);
+            this.tableLayoutPanelFiltro.Location = new System.Drawing.Point(183, 3);
             this.tableLayoutPanelFiltro.Name = "tableLayoutPanelFiltro";
             this.tableLayoutPanelFiltro.RowCount = 1;
             this.tableLayoutPanelFiltro.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanelFiltro.Size = new System.Drawing.Size(532, 31);
+            this.tableLayoutPanelFiltro.Size = new System.Drawing.Size(658, 31);
             this.tableLayoutPanelFiltro.TabIndex = 3;
             // 
             // label7
@@ -128,7 +134,7 @@ namespace Barros.FinanceControl.View
             this.label7.Location = new System.Drawing.Point(3, 6);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label7.Size = new System.Drawing.Size(76, 18);
+            this.label7.Size = new System.Drawing.Size(202, 18);
             this.label7.TabIndex = 5;
             this.label7.Text = "Filtro:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -137,7 +143,7 @@ namespace Barros.FinanceControl.View
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(265, 7);
+            this.label5.Location = new System.Drawing.Point(391, 7);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 16);
             this.label5.TabIndex = 2;
@@ -147,7 +153,7 @@ namespace Barros.FinanceControl.View
             // 
             this.maskedDataFinal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.maskedDataFinal.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedDataFinal.Location = new System.Drawing.Point(355, 4);
+            this.maskedDataFinal.Location = new System.Drawing.Point(481, 4);
             this.maskedDataFinal.Mask = "00/00/0000";
             this.maskedDataFinal.Name = "maskedDataFinal";
             this.maskedDataFinal.Size = new System.Drawing.Size(84, 22);
@@ -157,7 +163,7 @@ namespace Barros.FinanceControl.View
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(85, 7);
+            this.label4.Location = new System.Drawing.Point(211, 7);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 16);
             this.label4.TabIndex = 0;
@@ -167,7 +173,7 @@ namespace Barros.FinanceControl.View
             // 
             this.maskedDataInicial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.maskedDataInicial.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedDataInicial.Location = new System.Drawing.Point(175, 4);
+            this.maskedDataInicial.Location = new System.Drawing.Point(301, 4);
             this.maskedDataInicial.Mask = "00/00/0000";
             this.maskedDataInicial.Name = "maskedDataInicial";
             this.maskedDataInicial.Size = new System.Drawing.Size(84, 22);
@@ -177,13 +183,13 @@ namespace Barros.FinanceControl.View
             // 
             this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFiltrar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFiltrar.Location = new System.Drawing.Point(445, 3);
+            this.btnFiltrar.Location = new System.Drawing.Point(571, 3);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(84, 25);
             this.btnFiltrar.TabIndex = 4;
             this.btnFiltrar.Text = "F9 - Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.button1_Click);
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // tableLayoutPanelContaCategoria
             // 
@@ -203,7 +209,7 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelContaCategoria.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelContaCategoria.Size = new System.Drawing.Size(140, 410);
+            this.tableLayoutPanelContaCategoria.Size = new System.Drawing.Size(174, 410);
             this.tableLayoutPanelContaCategoria.TabIndex = 2;
             // 
             // label6
@@ -213,7 +219,7 @@ namespace Barros.FinanceControl.View
             this.label6.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(3, 214);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 18);
+            this.label6.Size = new System.Drawing.Size(168, 18);
             this.label6.TabIndex = 5;
             this.label6.Text = "Categorias";
             // 
@@ -226,9 +232,10 @@ namespace Barros.FinanceControl.View
             this.checkedListBoxCategoria.Location = new System.Drawing.Point(3, 245);
             this.checkedListBoxCategoria.Name = "checkedListBoxCategoria";
             this.checkedListBoxCategoria.ScrollAlwaysVisible = true;
-            this.checkedListBoxCategoria.Size = new System.Drawing.Size(134, 162);
+            this.checkedListBoxCategoria.Size = new System.Drawing.Size(168, 162);
             this.checkedListBoxCategoria.TabIndex = 4;
             this.checkedListBoxCategoria.ThreeDCheckBoxes = true;
+            this.checkedListBoxCategoria.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxCategoria_MouseUp);
             // 
             // label3
             // 
@@ -237,7 +244,7 @@ namespace Barros.FinanceControl.View
             this.label3.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 18);
+            this.label3.Size = new System.Drawing.Size(168, 18);
             this.label3.TabIndex = 1;
             this.label3.Text = "Contas";
             // 
@@ -250,10 +257,10 @@ namespace Barros.FinanceControl.View
             this.checkedListBoxConta.Location = new System.Drawing.Point(3, 40);
             this.checkedListBoxConta.Name = "checkedListBoxConta";
             this.checkedListBoxConta.ScrollAlwaysVisible = true;
-            this.checkedListBoxConta.Size = new System.Drawing.Size(134, 162);
+            this.checkedListBoxConta.Size = new System.Drawing.Size(168, 162);
             this.checkedListBoxConta.TabIndex = 2;
             this.checkedListBoxConta.ThreeDCheckBoxes = true;
-            this.checkedListBoxConta.Click += new System.EventHandler(this.checkedListBoxConta_Click);
+            this.checkedListBoxConta.MouseUp += new System.Windows.Forms.MouseEventHandler(this.checkedListBoxConta_MouseUp);
             // 
             // tableLayoutPanelAcoes
             // 
@@ -270,7 +277,7 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelAcoes.RowCount = 2;
             this.tableLayoutPanelAcoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.55319F));
             this.tableLayoutPanelAcoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.44681F));
-            this.tableLayoutPanelAcoes.Size = new System.Drawing.Size(678, 112);
+            this.tableLayoutPanelAcoes.Size = new System.Drawing.Size(838, 112);
             this.tableLayoutPanelAcoes.TabIndex = 1;
             // 
             // tableLayoutPanelBotoes
@@ -296,15 +303,15 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelBotoes.RowCount = 1;
             this.tableLayoutPanelBotoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelBotoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
-            this.tableLayoutPanelBotoes.Size = new System.Drawing.Size(672, 59);
+            this.tableLayoutPanelBotoes.Size = new System.Drawing.Size(832, 59);
             this.tableLayoutPanelBotoes.TabIndex = 0;
             // 
             // btnFechar
             // 
             this.btnFechar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnFechar.Location = new System.Drawing.Point(575, 5);
+            this.btnFechar.Location = new System.Drawing.Point(713, 5);
             this.btnFechar.Name = "btnFechar";
-            this.btnFechar.Size = new System.Drawing.Size(92, 49);
+            this.btnFechar.Size = new System.Drawing.Size(114, 49);
             this.btnFechar.TabIndex = 6;
             this.btnFechar.Text = "Esc - Fechar";
             this.btnFechar.UseVisualStyleBackColor = true;
@@ -314,9 +321,9 @@ namespace Barros.FinanceControl.View
             // 
             this.btnExcluir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnExcluir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluir.Location = new System.Drawing.Point(290, 5);
+            this.btnExcluir.Location = new System.Drawing.Point(359, 5);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(87, 49);
+            this.btnExcluir.Size = new System.Drawing.Size(110, 49);
             this.btnExcluir.TabIndex = 3;
             this.btnExcluir.Text = "F7 - Excluir";
             this.btnExcluir.UseCompatibleTextRendering = true;
@@ -327,10 +334,10 @@ namespace Barros.FinanceControl.View
             // 
             this.btnAlterar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAlterar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlterar.Location = new System.Drawing.Point(195, 5);
+            this.btnAlterar.Location = new System.Drawing.Point(241, 5);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnAlterar.Size = new System.Drawing.Size(87, 49);
+            this.btnAlterar.Size = new System.Drawing.Size(110, 49);
             this.btnAlterar.TabIndex = 2;
             this.btnAlterar.Text = "F6 - Alterar";
             this.btnAlterar.UseCompatibleTextRendering = true;
@@ -341,9 +348,9 @@ namespace Barros.FinanceControl.View
             // 
             this.btnIncluir.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnIncluir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIncluir.Location = new System.Drawing.Point(100, 5);
+            this.btnIncluir.Location = new System.Drawing.Point(123, 5);
             this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(87, 49);
+            this.btnIncluir.Size = new System.Drawing.Size(110, 49);
             this.btnIncluir.TabIndex = 1;
             this.btnIncluir.Text = "F5 - Incluir";
             this.btnIncluir.UseCompatibleTextRendering = true;
@@ -356,7 +363,7 @@ namespace Barros.FinanceControl.View
             this.btnAjuda.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAjuda.Location = new System.Drawing.Point(5, 5);
             this.btnAjuda.Name = "btnAjuda";
-            this.btnAjuda.Size = new System.Drawing.Size(87, 49);
+            this.btnAjuda.Size = new System.Drawing.Size(110, 49);
             this.btnAjuda.TabIndex = 0;
             this.btnAjuda.Text = "F1 - Ajuda";
             this.btnAjuda.UseCompatibleTextRendering = true;
@@ -365,66 +372,78 @@ namespace Barros.FinanceControl.View
             // tableLayoutPanelPesquisa
             // 
             this.tableLayoutPanelPesquisa.ColumnCount = 7;
-            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.291667F));
-            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.226191F));
-            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 4.166667F));
-            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.779762F));
-            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.81548F));
-            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.226191F));
-            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.34524F));
-            this.tableLayoutPanelPesquisa.Controls.Add(this.txtBusca, 6, 0);
-            this.tableLayoutPanelPesquisa.Controls.Add(this.label2, 5, 0);
-            this.tableLayoutPanelPesquisa.Controls.Add(this.cbxCampoSelecionado, 4, 0);
-            this.tableLayoutPanelPesquisa.Controls.Add(this.label1, 3, 0);
+            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 68F));
+            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
+            this.tableLayoutPanelPesquisa.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanelPesquisa.Controls.Add(this.cbxCampoSelecionado, 3, 0);
+            this.tableLayoutPanelPesquisa.Controls.Add(this.label2, 4, 0);
+            this.tableLayoutPanelPesquisa.Controls.Add(this.txtBusca, 5, 0);
+            this.tableLayoutPanelPesquisa.Controls.Add(this.btnBuscar, 6, 0);
+            this.tableLayoutPanelPesquisa.Controls.Add(this.label1, 2, 0);
             this.tableLayoutPanelPesquisa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelPesquisa.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanelPesquisa.Name = "tableLayoutPanelPesquisa";
             this.tableLayoutPanelPesquisa.RowCount = 1;
             this.tableLayoutPanelPesquisa.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelPesquisa.Size = new System.Drawing.Size(672, 41);
+            this.tableLayoutPanelPesquisa.Size = new System.Drawing.Size(832, 41);
             this.tableLayoutPanelPesquisa.TabIndex = 1;
-            // 
-            // txtBusca
-            // 
-            this.txtBusca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBusca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusca.Location = new System.Drawing.Point(376, 9);
-            this.txtBusca.Name = "txtBusca";
-            this.txtBusca.Size = new System.Drawing.Size(293, 22);
-            this.txtBusca.TabIndex = 3;
-            this.txtBusca.TextChanged += new System.EventHandler(this.txtBusca_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(314, 12);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Buscar:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // cbxCampoSelecionado
             // 
             this.cbxCampoSelecionado.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cbxCampoSelecionado.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbxCampoSelecionado.FormattingEnabled = true;
-            this.cbxCampoSelecionado.Location = new System.Drawing.Point(201, 8);
+            this.cbxCampoSelecionado.Location = new System.Drawing.Point(72, 8);
             this.cbxCampoSelecionado.Name = "cbxCampoSelecionado";
             this.cbxCampoSelecionado.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.cbxCampoSelecionado.Size = new System.Drawing.Size(107, 24);
+            this.cbxCampoSelecionado.Size = new System.Drawing.Size(94, 24);
             this.cbxCampoSelecionado.TabIndex = 1;
             this.cbxCampoSelecionado.SelectedValueChanged += new System.EventHandler(this.cbxCampoSelecionado_SelectedValueChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(172, 12);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Buscar:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // txtBusca
+            // 
+            this.txtBusca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtBusca.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusca.Location = new System.Drawing.Point(240, 9);
+            this.txtBusca.Name = "txtBusca";
+            this.txtBusca.Size = new System.Drawing.Size(494, 22);
+            this.txtBusca.TabIndex = 3;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBuscar.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(740, 8);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(89, 25);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label1
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(142, 12);
+            this.label1.Location = new System.Drawing.Point(3, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 16);
+            this.label1.Size = new System.Drawing.Size(63, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Campo:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -446,7 +465,7 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanelContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelContainer.Size = new System.Drawing.Size(684, 536);
+            this.tableLayoutPanelContainer.Size = new System.Drawing.Size(844, 536);
             this.tableLayoutPanelContainer.TabIndex = 0;
             // 
             // tableLayoutPanelConteudo
@@ -457,12 +476,12 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelConteudo.Controls.Add(this.transacaoDataGridView, 0, 0);
             this.tableLayoutPanelConteudo.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanelConteudo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelConteudo.Location = new System.Drawing.Point(149, 40);
+            this.tableLayoutPanelConteudo.Location = new System.Drawing.Point(183, 40);
             this.tableLayoutPanelConteudo.Name = "tableLayoutPanelConteudo";
             this.tableLayoutPanelConteudo.RowCount = 2;
             this.tableLayoutPanelConteudo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 57.64075F));
             this.tableLayoutPanelConteudo.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.35925F));
-            this.tableLayoutPanelConteudo.Size = new System.Drawing.Size(532, 373);
+            this.tableLayoutPanelConteudo.Size = new System.Drawing.Size(658, 373);
             this.tableLayoutPanelConteudo.TabIndex = 4;
             // 
             // transacaoDataGridView
@@ -470,16 +489,17 @@ namespace Barros.FinanceControl.View
             this.transacaoDataGridView.AutoGenerateColumns = false;
             this.transacaoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.transacaoDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataDataGridViewTextBoxColumn,
-            this.descricaoDataGridViewTextBoxColumn,
-            this.categoriaDataGridViewTextBoxColumn,
-            this.contaDataGridViewTextBoxColumn,
-            this.valorDataGridViewTextBoxColumn});
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5});
             this.transacaoDataGridView.DataSource = this.transacaoBindingSource;
             this.transacaoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.transacaoDataGridView.Location = new System.Drawing.Point(3, 3);
             this.transacaoDataGridView.Name = "transacaoDataGridView";
-            this.transacaoDataGridView.Size = new System.Drawing.Size(526, 209);
+            this.transacaoDataGridView.ReadOnly = true;
+            this.transacaoDataGridView.Size = new System.Drawing.Size(652, 209);
             this.transacaoDataGridView.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -496,7 +516,7 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 66.66666F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(526, 152);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(652, 152);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // lblSaldoTotal
@@ -504,10 +524,10 @@ namespace Barros.FinanceControl.View
             this.lblSaldoTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSaldoTotal.AutoSize = true;
             this.lblSaldoTotal.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaldoTotal.ForeColor = System.Drawing.Color.Black;
-            this.lblSaldoTotal.Location = new System.Drawing.Point(320, 109);
+            this.lblSaldoTotal.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblSaldoTotal.Location = new System.Drawing.Point(397, 109);
             this.lblSaldoTotal.Name = "lblSaldoTotal";
-            this.lblSaldoTotal.Size = new System.Drawing.Size(203, 34);
+            this.lblSaldoTotal.Size = new System.Drawing.Size(252, 34);
             this.lblSaldoTotal.TabIndex = 3;
             this.lblSaldoTotal.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -517,6 +537,7 @@ namespace Barros.FinanceControl.View
             this.dataGridViewContaSaldo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewContaSaldo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Descricao,
+            this.DataSaldoInicial,
             this.SaldoInicial,
             this.SsaldoAtual});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridViewContaSaldo, 2);
@@ -524,7 +545,7 @@ namespace Barros.FinanceControl.View
             this.dataGridViewContaSaldo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewContaSaldo.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewContaSaldo.Name = "dataGridViewContaSaldo";
-            this.dataGridViewContaSaldo.Size = new System.Drawing.Size(520, 95);
+            this.dataGridViewContaSaldo.Size = new System.Drawing.Size(646, 95);
             this.dataGridViewContaSaldo.TabIndex = 1;
             // 
             // label8
@@ -534,59 +555,84 @@ namespace Barros.FinanceControl.View
             this.label8.Font = new System.Drawing.Font("Arial", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(3, 110);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(311, 32);
+            this.label8.Size = new System.Drawing.Size(388, 32);
             this.label8.TabIndex = 2;
             this.label8.Text = "Saldo Total:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // DataSaldoInicial
+            // 
+            this.DataSaldoInicial.DataPropertyName = "DataSaldoInicial";
+            dataGridViewCellStyle7.Format = "d";
+            this.DataSaldoInicial.DefaultCellStyle = dataGridViewCellStyle7;
+            this.DataSaldoInicial.HeaderText = "Data Inicial";
+            this.DataSaldoInicial.Name = "DataSaldoInicial";
+            this.DataSaldoInicial.Width = 150;
+            // 
             // SaldoInicial
             // 
             this.SaldoInicial.DataPropertyName = "SaldoInicial";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Format = "C2";
-            this.SaldoInicial.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Format = "C2";
+            this.SaldoInicial.DefaultCellStyle = dataGridViewCellStyle8;
             this.SaldoInicial.HeaderText = "SaldoInicial";
             this.SaldoInicial.Name = "SaldoInicial";
             this.SaldoInicial.ReadOnly = true;
+            this.SaldoInicial.Width = 150;
             // 
-            // dataDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataDataGridViewTextBoxColumn.DataPropertyName = "Data";
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Data";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.Format = "d";
-            this.dataDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataDataGridViewTextBoxColumn.HeaderText = "Data";
-            this.dataDataGridViewTextBoxColumn.Name = "dataDataGridViewTextBoxColumn";
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Data";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 120;
             // 
-            // descricaoDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn2
             // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descricao";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.Width = 250;
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Descricao";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Descricao";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 300;
             // 
-            // categoriaDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn3
             // 
-            this.categoriaDataGridViewTextBoxColumn.DataPropertyName = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.categoriaDataGridViewTextBoxColumn.Name = "categoriaDataGridViewTextBoxColumn";
-            this.categoriaDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Categoria";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Categoria";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 200;
             // 
-            // contaDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn4
             // 
-            this.contaDataGridViewTextBoxColumn.DataPropertyName = "Conta";
-            this.contaDataGridViewTextBoxColumn.HeaderText = "Conta";
-            this.contaDataGridViewTextBoxColumn.Name = "contaDataGridViewTextBoxColumn";
-            this.contaDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Conta";
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Conta";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 200;
             // 
-            // valorDataGridViewTextBoxColumn
+            // dataGridViewTextBoxColumn5
             // 
-            this.valorDataGridViewTextBoxColumn.DataPropertyName = "Valor";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle2.Format = "C2";
-            this.valorDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.valorDataGridViewTextBoxColumn.HeaderText = "Valor";
-            this.valorDataGridViewTextBoxColumn.Name = "valorDataGridViewTextBoxColumn";
-            this.valorDataGridViewTextBoxColumn.Width = 150;
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Valor";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Format = "C2";
+            dataGridViewCellStyle5.NullValue = null;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Valor";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 150;
             // 
             // transacaoBindingSource
             // 
@@ -595,9 +641,10 @@ namespace Barros.FinanceControl.View
             // Descricao
             // 
             this.Descricao.DataPropertyName = "Descricao";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Descricao.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.Descricao.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Descricao.Frozen = true;
             this.Descricao.HeaderText = "Conta";
             this.Descricao.Name = "Descricao";
             this.Descricao.ReadOnly = true;
@@ -606,10 +653,10 @@ namespace Barros.FinanceControl.View
             // SsaldoAtual
             // 
             this.SsaldoAtual.DataPropertyName = "Saldo";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Format = "C2";
-            dataGridViewCellStyle5.NullValue = null;
-            this.SsaldoAtual.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Format = "C2";
+            dataGridViewCellStyle9.NullValue = null;
+            this.SsaldoAtual.DefaultCellStyle = dataGridViewCellStyle9;
             this.SsaldoAtual.HeaderText = "Saldo Atual";
             this.SsaldoAtual.Name = "SsaldoAtual";
             this.SsaldoAtual.ReadOnly = true;
@@ -623,7 +670,7 @@ namespace Barros.FinanceControl.View
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 536);
+            this.ClientSize = new System.Drawing.Size(844, 536);
             this.Controls.Add(this.tableLayoutPanelContainer);
             this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -670,7 +717,6 @@ namespace Barros.FinanceControl.View
         private System.Windows.Forms.DataGridViewTextBoxColumn telefoneDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn celularDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn faxDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource transacaoBindingSource;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelFiltro;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
@@ -698,17 +744,25 @@ namespace Barros.FinanceControl.View
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanelConteudo;
         private System.Windows.Forms.DataGridView transacaoDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn contaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView dataGridViewContaSaldo;
         private System.Windows.Forms.Label lblSaldoTotal;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.BindingSource contaBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn categoriaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn contaDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.BindingSource transacaoBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DataSaldoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn SaldoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn SsaldoAtual;
 

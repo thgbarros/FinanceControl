@@ -17,6 +17,7 @@ namespace Barros.FinanceControl.View
             txtId.Text = conta.Id.ToString();
             txtDescricao.Text = conta.Descricao;
             txtSaldo.Text = CurrencyFormat.doubleToString(conta.SaldoInicial);
+            dTPDataSaldoInicial.Text = conta.DataSaldoInicial.ToString("dd/MM/yyyy");
         }        
 
         public FormConta(ContaService contaService){
@@ -31,6 +32,7 @@ namespace Barros.FinanceControl.View
 
             conta.Descricao = txtDescricao.Text;
             conta.SaldoInicial = Convert.ToDouble(txtSaldo.Text);
+            conta.DataSaldoInicial = DateTime.Parse(dTPDataSaldoInicial.Text);
             
             return conta;            
         }
@@ -55,6 +57,11 @@ namespace Barros.FinanceControl.View
         {
             if (txtSaldo.Text != "")
                txtSaldo.Text = CurrencyFormat.doubleToString(Convert.ToDouble(txtSaldo.Text));           
+        }
+
+        private void btnCancelar_Click_1(object sender, EventArgs e)
+        {
+            Close();
         }
 
     }

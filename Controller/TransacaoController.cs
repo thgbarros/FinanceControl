@@ -61,6 +61,11 @@ namespace Barros.FinanceControl.Controller {
             return this;
         }
 
+        public TransacaoController removeTodosOsFiltrosCategoria() {
+            this.filtroCategoria.RemoveAll(c => c != null);
+            return this;
+        }
+
         public IList<Transacao> getTodasTransacao() {
             return transacaoService.getAllListOfFilterInPeriod(
                         DataInicial, DataFinal, filtroCategoria, filtroConta);            

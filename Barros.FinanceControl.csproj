@@ -89,6 +89,7 @@
     <Compile Include="Controller\TransacaoController.cs" />
     <Compile Include="Models\Entities\Categoria.cs" />
     <Compile Include="Models\Entities\Conta.cs" />
+    <Compile Include="Models\Entities\Orcamento.cs" />
     <Compile Include="Models\Entities\Transacao.cs" />
     <Compile Include="Models\Entities\Usuario.cs" />
     <Compile Include="Models\Entities\UsuarioLogado.cs" />
@@ -96,11 +97,13 @@
     <Compile Include="Models\Repository\Daos\BaseCrudDao.cs" />
     <Compile Include="Models\Repository\Daos\CategoriaDao.cs" />
     <Compile Include="Models\Repository\Daos\ContaDao.cs" />
+    <Compile Include="Models\Repository\Daos\OrcamentoDao.cs" />
     <Compile Include="Models\Repository\Daos\TransacaoDao.cs" />
     <Compile Include="Models\Repository\Daos\UsuarioDao.cs" />
     <Compile Include="Models\Repository\FluentySessionFactory.cs" />
     <Compile Include="Models\Repository\FluentySysSessionFactory.cs" />
     <Compile Include="Models\Repository\Interface\IBaseCrudDao.cs" />
+    <Compile Include="Models\Repository\Mapping\OrcamentoMap.cs" />
     <Compile Include="Models\Repository\Mapping\CategoriaMap.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -108,6 +111,7 @@
     <Compile Include="Models\Repository\Mapping\TransacaoMap.cs" />
     <Compile Include="Models\Repository\Mapping\UsusuarioMap.cs" />
     <Compile Include="Models\Service\BaseCrudService.cs" />
+    <Compile Include="Models\Service\OrcamentoService.cs" />
     <Compile Include="Models\Service\CategoriaService.cs" />
     <Compile Include="Models\Service\ContaService.cs" />
     <Compile Include="Models\Service\TransacaoService.cs" />

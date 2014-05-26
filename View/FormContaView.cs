@@ -17,7 +17,8 @@ namespace Barros.FinanceControl.View {
                     FluentlySessionFactory.getInstanceFor(
                         UsuarioLogado.getInstance().getUsuario()).Session));
             
-            cbxCampoSelecionado.DataSource = contaService.getAllPropertiesWitoutPropertyName("Transacoes");
+            cbxCampoSelecionado.DataSource = contaService
+                            .getAllPropertiesWithout("Transacoes");
             cbxCampoSelecionado.SelectedIndex = 0;
 //            atualizaGrid();
         }            

@@ -73,6 +73,11 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
                 command.ExecuteNonQuery();
                 //command.CommandText = getTriggerTransacaoFor(usuario);
                 //command.ExecuteNonQuery();
+
+                command.CommandText = getTabelaOrcamentoFor(usuario);
+                command.ExecuteNonQuery();
+                command.CommandText = getSequenceOrcamentoFor(usuario);
+                command.ExecuteNonQuery();
             }
         }
 
@@ -92,14 +97,14 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
                         "increment by 1 start with 1 nocache";
         }
 
-        private string getTriggerCategoriaFor(Usuario usuario) { 
-            return "create trigger "+usuario.Login+".trg_cat_seq "+
-                       "before insert on "+usuario.Login+".categoria "+
-                       "for each row "+
-                       "begin "+
-                            "select "+usuario.Login+".seq_cat_id.nextVal into :new.id from dual; "+
-                        "end;";
-        }
+        //private string getTriggerCategoriaFor(Usuario usuario) { 
+        //    return "create trigger "+usuario.Login+".trg_cat_seq "+
+        //               "before insert on "+usuario.Login+".categoria "+
+        //               "for each row "+
+        //               "begin "+
+        //                    "select "+usuario.Login+".seq_cat_id.nextVal into :new.id from dual; "+
+        //                "end;";
+        //}
 
         private string getTabelaContaFor(Usuario usuario) {
             return "create table " + usuario.Login + ".conta(" +
@@ -115,14 +120,14 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
                         "increment by 1 start with 1 nocache";
         }
 
-        private string getTriggerContaFor(Usuario usuario) {
-            return "create trigger " + usuario.Login + ".trg_conta_seq " +
-                       "before insert on " + usuario.Login + ".conta " +
-                       "for each row " +
-                       "begin " +
-                            "select " + usuario.Login + ".seq_conta_id.nextVal into :new.id from dual; " +
-                        "end;";
-        }
+        //private string getTriggerContaFor(Usuario usuario) {
+        //    return "create trigger " + usuario.Login + ".trg_conta_seq " +
+        //               "before insert on " + usuario.Login + ".conta " +
+        //               "for each row " +
+        //               "begin " +
+        //                    "select " + usuario.Login + ".seq_conta_id.nextVal into :new.id from dual; " +
+        //                "end;";
+        //}
 
         private string getTabelaTransacaoFor(Usuario usuario) {
             return "create table " + usuario.Login + ".transacao(" +
@@ -142,15 +147,34 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
                         "increment by 1 start with 1 nocache";
         }
 
-        private string getTriggerTransacaoFor(Usuario usuario) {
-            return "create trigger " + usuario.Login + ".trg_trans_seq " +
-                       "before insert on " + usuario.Login + ".transacao " +
-                       "for each row " +
-                       "begin " +
-                            "select " + usuario.Login + ".seq_trans_id.nextVal into :new.id from dual; " +
-                        "end;";
+        //private string getTriggerTransacaoFor(Usuario usuario) {
+        //    return "create trigger " + usuario.Login + ".trg_trans_seq " +
+        //               "before insert on " + usuario.Login + ".transacao " +
+        //               "for each row " +
+        //               "begin " +
+        //                    "select " + usuario.Login + ".seq_trans_id.nextVal into :new.id from dual; " +
+        //                "end;";
+        //}
+
+        private string getTabelaOrcamentoFor(Usuario usuario) {
+            return "create table "+usuario.Login+"orcamento(" +
+                        "id number not null," +
+                        "descricao varchar2(60) not null," +
+                        "tipo_orcamento number default 0," +
+                        "valor number(8,2) default 0," +
+                        "mes number," +
+                        "ano number," +
+                        "categoria_id number not null," +
+                        "constraint pk_orcamento_id primary key(id)," +
+                        "constraint fk_orc_categoria_id foreign key(categoria_id) references "+
+                                usuario.Login+"categoria(id))";
         }
 
+
+        private string getSequenceOrcamentoFor(Usuario usuario) {
+            return "create sequence " + usuario.Login + ".seq_orc_id " +
+                        "increment by 1 start with 1 nocache";
+        }      
    
     }
 }

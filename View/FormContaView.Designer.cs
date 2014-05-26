@@ -32,13 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormContaView));
             this.tableLayoutPanelContainer = new System.Windows.Forms.TableLayoutPanel();
             this.contaDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.saldoInicialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanelAcoes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBotoes = new System.Windows.Forms.TableLayoutPanel();
             this.btnFechar = new System.Windows.Forms.Button();
@@ -52,12 +49,17 @@
             this.cbxCampoSelecionado = new System.Windows.Forms.ComboBox();
             this.txtBusca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descricaoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saldoInicialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanelContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contaDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).BeginInit();
             this.tableLayoutPanelAcoes.SuspendLayout();
             this.tableLayoutPanelBotoes.SuspendLayout();
             this.tableLayoutPanelPesquisa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanelContainer
@@ -83,7 +85,8 @@
             this.contaDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.descricaoDataGridViewTextBoxColumn,
-            this.saldoInicialDataGridViewTextBoxColumn});
+            this.saldoInicialDataGridViewTextBoxColumn,
+            this.Column1});
             this.contaDataGridView.DataSource = this.contaBindingSource;
             this.contaDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.contaDataGridView.Location = new System.Drawing.Point(4, 4);
@@ -95,44 +98,6 @@
             this.contaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.contaDataGridView.Size = new System.Drawing.Size(676, 353);
             this.contaDataGridView.TabIndex = 0;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewTextBoxColumn1.Width = 80;
-            // 
-            // descricaoDataGridViewTextBoxColumn
-            // 
-            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.descricaoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
-            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
-            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
-            this.descricaoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.descricaoDataGridViewTextBoxColumn.Width = 350;
-            // 
-            // saldoInicialDataGridViewTextBoxColumn
-            // 
-            this.saldoInicialDataGridViewTextBoxColumn.DataPropertyName = "SaldoInicial";
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.saldoInicialDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.saldoInicialDataGridViewTextBoxColumn.HeaderText = "Saldo Inicial";
-            this.saldoInicialDataGridViewTextBoxColumn.Name = "saldoInicialDataGridViewTextBoxColumn";
-            this.saldoInicialDataGridViewTextBoxColumn.ReadOnly = true;
-            this.saldoInicialDataGridViewTextBoxColumn.Width = 150;
-            // 
-            // contaBindingSource
-            // 
-            this.contaBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Conta);
             // 
             // tableLayoutPanelAcoes
             // 
@@ -318,6 +283,55 @@
             this.label2.Text = "Buscar:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // contaBindingSource
+            // 
+            this.contaBindingSource.DataSource = typeof(Barros.FinanceControl.Models.Entities.Conta);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewTextBoxColumn1.Width = 80;
+            // 
+            // descricaoDataGridViewTextBoxColumn
+            // 
+            this.descricaoDataGridViewTextBoxColumn.DataPropertyName = "Descricao";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.descricaoDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.descricaoDataGridViewTextBoxColumn.HeaderText = "Descrição";
+            this.descricaoDataGridViewTextBoxColumn.Name = "descricaoDataGridViewTextBoxColumn";
+            this.descricaoDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descricaoDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.descricaoDataGridViewTextBoxColumn.Width = 350;
+            // 
+            // saldoInicialDataGridViewTextBoxColumn
+            // 
+            this.saldoInicialDataGridViewTextBoxColumn.DataPropertyName = "SaldoInicial";
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Format = "C2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.saldoInicialDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.saldoInicialDataGridViewTextBoxColumn.HeaderText = "Saldo Inicial";
+            this.saldoInicialDataGridViewTextBoxColumn.Name = "saldoInicialDataGridViewTextBoxColumn";
+            this.saldoInicialDataGridViewTextBoxColumn.ReadOnly = true;
+            this.saldoInicialDataGridViewTextBoxColumn.Width = 150;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "DataSaldoInicial";
+            dataGridViewCellStyle4.Format = "d";
+            dataGridViewCellStyle4.NullValue = null;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column1.HeaderText = "Data";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 130;
+            // 
             // FormContaView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -338,11 +352,11 @@
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FormClienteView_KeyDown);
             this.tableLayoutPanelContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.contaDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).EndInit();
             this.tableLayoutPanelAcoes.ResumeLayout(false);
             this.tableLayoutPanelBotoes.ResumeLayout(false);
             this.tableLayoutPanelPesquisa.ResumeLayout(false);
             this.tableLayoutPanelPesquisa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contaBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -379,6 +393,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn descricaoDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn saldoInicialDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 
     }
 }

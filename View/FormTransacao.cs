@@ -35,8 +35,8 @@ namespace Barros.FinanceControl.View
             cbxCategoria.SelectedItem = transacao.Categoria;
             cbxConta.SelectedItem = transacao.Conta;
             maskedData.Text = transacao.Data.ToString("dd/MM/yyyy");
-            txtDescricao.Text = transacao.Descricao;            
-            txtValor.Text = formatValor(transacao.Valor);
+            txtDescricao.Text = transacao.Descricao;
+            txtValor.Text = formatValor(Math.Abs(transacao.Valor)) ;
             this.transacao = transacao;
         }
 
@@ -66,6 +66,9 @@ namespace Barros.FinanceControl.View
                 
             transacao.Descricao = txtDescricao.Text;
             transacao.Valor = Convert.ToDouble(txtValor.Text);
+
+            if (transacao.Data < transacao.Conta.DataSaldoInicial)
+                throw new ArgumentException("Data da transação não pode ser menor\n do que a data de saldo inicial da conta!");
 
             return transacao;
         }

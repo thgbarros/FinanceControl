@@ -81,6 +81,7 @@ namespace Barros.FinanceControl{
 
         private void transacoesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            tableLayoutPanelBotoes.Visible = false;
             showMdiForm(new FormTransacaoView());
         }
 
@@ -90,8 +91,7 @@ namespace Barros.FinanceControl{
         }
 
         private void btnTransacoes_Click(object sender, EventArgs e)
-        {
-            tableLayoutPanelBotoes.Visible = false;
+        {            
             transacoesToolStripMenuItem_Click(null, null);
         }
 

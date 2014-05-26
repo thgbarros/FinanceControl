@@ -30,21 +30,27 @@ namespace Barros.FinanceControl.Models.Service {
         }
 
         public IList<string> getAllProperties() {
-            return getAllPropertiesWithoutType(null);
+            return getAllPropertiesWithout(String.Empty);
         }
 
-        public IList<string> getAllPropertiesWitoutPropertyName(params string[] name) {
-            IList<string> properties = new List<string>();
+        public IList<string> getAllPropertiesWithout(params string[] name) {
+            IList<string> properties = new List<string>();            
             Type t = (attributeType == null ? typeof(T) : attributeType);
             foreach (PropertyInfo fi in typeof(T).GetProperties()) {
+                bool add = true;
                 foreach (string tParam in name)
-                    if (string.IsNullOrEmpty(tParam) || !fi.Name.Equals(tParam))
-                        properties.Add(fi.Name);
+                    if (!string.IsNullOrEmpty(tParam) && fi.Name.Equals(tParam)) {
+                        add = false;
+                        break;
+                    }                        
+
+                if (add)
+                    properties.Add(fi.Name);                    
             }
             return properties;
         }
 
-        public IList<string> getAllPropertiesWithoutType(params Type[] type) {
+        public IList<string> getAllPropertiesWithout(params Type[] type) {
             IList<string> properties = new List<string>();
             Type t = (attributeType == null ? typeof(T) : attributeType);
             foreach (PropertyInfo fi in t.GetProperties()) {

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Barros.FinanceControl.Models.Entities {
 
@@ -12,10 +9,16 @@ namespace Barros.FinanceControl.Models.Entities {
 
     [Serializable]
     public class Categoria {
+        private IList<Transacao> transacoes = new List<Transacao>();
+
         public virtual int Id { get; set; }
         public virtual string Descricao { get; set; }
         public virtual Categoria CategoriaPai { get; set; }
         public virtual TipoCategoria TipoCategoria { get; set; }
+        public virtual IList<Transacao> Transacoes {
+            get { return transacoes; }
+            set { transacoes = value; }
+        }
 
         public override string ToString(){                 
             return (CategoriaPai != null ? 
@@ -41,8 +44,6 @@ namespace Barros.FinanceControl.Models.Entities {
             int result = 1;
             result = prime * result + this.Id.GetHashCode();
             return result;
-        }      
-
-        
+        }              
     }
 }
