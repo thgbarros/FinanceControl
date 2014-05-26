@@ -12,8 +12,7 @@ namespace Barros.FinanceControl.View {
     
     public partial class FormTransacaoView : Form {
         private TransacaoService transacaoService;
-        private TransacaoController controller;
-        private int indexAux = 0;
+        private TransacaoController controller;        
 
         public FormTransacaoView() {
             InitializeComponent();
@@ -27,7 +26,7 @@ namespace Barros.FinanceControl.View {
             maskedDataInicial.Text = DateTime.Now.ToString("dd/MM/yyyy");
             maskedDataFinal.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cbxCampoSelecionado.DataSource = transacaoService.getAllPropertiesWithoutType(
-                       typeof(Conta), typeof(Categoria));
+                       typeof(Conta), typeof(Categoria));           
         }
 
         private void loadCheckedListBoxConta() {
@@ -38,23 +37,47 @@ namespace Barros.FinanceControl.View {
             checkedListBoxConta.Items.AddRange(
                     IListConverter<Conta>.toList(contaService
                             .getAllListOrderByAsc("Descricao")).ToArray());
+
+            contaBindingSource.DataSource = contaService.getAllListOrderByAsc("Descricao");
             contaService = null;
-            
         }
 
-        private void atualizaSaldo() {
-            loadCheckedListBoxConta();
-            int totalContasSelecionada = checkedListBoxConta.SelectedItems.Count;
+        /// <summary>
+        /// Atualiza o saldo no dataGrid ContasSelecionadas.
+        /// </summary>
+        private void atualizaSaldoContasSelecionadas() {
             double saldoTotal = 0;
-            if (totalContasSelecionada != 0) {
-                for (int i = 0; i < totalContasSelecionada; i++)
-                    saldoTotal += ((Conta)checkedListBoxConta.SelectedItems[i]).getSaldo();
-            } else {
-                totalContasSelecionada = checkedListBoxConta.Items.Count;
-                for (int i = 0; i < totalContasSelecionada; i++)
-                    saldoTotal += ((Conta)checkedListBoxConta.Items[i]).getSaldo();
+            foreach (DataGridViewRow dgvr in dataGridViewContaSaldo.Rows) {
+                IList<Conta> contas = ((IList<Conta>)contaBindingSource.DataSource);
+
+                if (dgvr.Index < contas.Count) {
+                    Conta conta = contas[dgvr.Index];
+                    double saldoConta = conta.getSaldoDesdeOInicioAteDataAtual();                    
+                    saldoTotal += saldoConta;
+                }                
             }
+
             lblSaldoTotal.Text = CurrencyFormat.doubleToString(saldoTotal);
+        }
+
+        private void atualizaListaDeContasSelecionadas(){            
+            int totalContasSelecionada = checkedListBoxConta.CheckedItems.Count;
+            if (totalContasSelecionada == 0) {
+                totalContasSelecionada = checkedListBoxConta.Items.Count;
+
+                contaBindingSource.Clear();
+                controller.removeTodosOsFiltrosConta();
+                for (int i = 0; i < totalContasSelecionada; i++) {
+                    Conta contaSelecionada = (Conta)(checkedListBoxConta.CheckedItems.Count != 0 ?
+                                                        checkedListBoxConta.CheckedItems[i] :
+                                                            checkedListBoxConta.Items[i]);
+                    contaBindingSource.Add(contaSelecionada);
+                    controller.addFiltro(contaSelecionada);
+                }
+
+            }
+            
+            atualizaGrid();            
         }
 
         private void loadCheckedListBoxCategoria() {
@@ -70,9 +93,8 @@ namespace Barros.FinanceControl.View {
         private void atualizaGrid() {
             controller.DataInicial = DateTime.Parse(maskedDataInicial.Text);
             controller.DataFinal = DateTime.Parse(maskedDataFinal.Text);
-            transacaoBindingSource.DataSource = controller.getTodasTransacao();
-            atualizaSaldo();
-           
+            transacaoBindingSource.DataSource = controller.getTodasTransacao();            
+            atualizaSaldoContasSelecionadas();           
         }
 
         private Transacao getTransacaoSelecionada() {
@@ -80,12 +102,6 @@ namespace Barros.FinanceControl.View {
             return ((IList<Transacao>)transacaoBindingSource.DataSource)[linhaSelecionada];
         }
 
-
-        private void FormClienteView_KeyPress(object sender, KeyPressEventArgs e)
-        {
-           
-        }
-       
         private void btnIncluir_Click(object sender, EventArgs e)
         {
             FormTransacao fu = new FormTransacao(transacaoService);
@@ -112,11 +128,6 @@ namespace Barros.FinanceControl.View {
         private void btnFechar_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btnVeiculos_Click(object sender, EventArgs e)
-        {
-        
         }
 
         private void FormClienteView_KeyDown(object sender, KeyEventArgs e)
@@ -160,20 +171,14 @@ namespace Barros.FinanceControl.View {
             FormPrincipal.getInstance().enablePanelBotoes();
         }
 
-        private void checkedListBoxConta_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (checkedListBoxConta.GetItemChecked(checkedListBoxConta.SelectedIndex) ) {
-                foreach (Conta itemChecked in checkedListBoxConta.CheckedItems) {
-                    controller.addFiltro(itemChecked);
-                    atualizaGrid();
-                }
-            }
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             atualizaGrid();
-        }    
-        
+        }        
+
+        private void checkedListBoxConta_Click(object sender, EventArgs e)
+        {
+            atualizaListaDeContasSelecionadas();  
+        }       
     }
 }

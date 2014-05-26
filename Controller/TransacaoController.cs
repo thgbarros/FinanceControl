@@ -41,7 +41,8 @@ namespace Barros.FinanceControl.Controller {
         }
 
         public TransacaoController addFiltro(Conta conta) {
-            this.filtroConta.Add(conta);
+            if (!filtroConta.Contains(conta))
+                this.filtroConta.Add(conta);
             return this;
         }
 
@@ -52,6 +53,11 @@ namespace Barros.FinanceControl.Controller {
 
         public TransacaoController removeFiltro(Conta conta) {
             this.filtroConta.Remove(conta);
+            return this;
+        }
+
+        public TransacaoController removeTodosOsFiltrosConta(){
+            this.filtroConta.RemoveAll(c => c != null);
             return this;
         }
 
