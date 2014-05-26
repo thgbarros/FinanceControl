@@ -61,7 +61,9 @@ namespace Barros.FinanceControl.View
             transacao.Conta = ((IList<Conta>)cbxConta.DataSource)[cbxConta.SelectedIndex];
             if (cbxCategoria.SelectedIndex < 0)
                 throw new ArgumentException("Categoria não selecionada!");
-            transacao.Categoria = ((IList<Categoria>)cbxCategoria.DataSource)[cbxCategoria.SelectedIndex];                
+
+            transacao.Categoria = ((IList<Categoria>)cbxCategoria.DataSource)[cbxCategoria.SelectedIndex];
+                
             transacao.Descricao = txtDescricao.Text;
             transacao.Valor = Convert.ToDouble(txtValor.Text);
 
