@@ -29,20 +29,7 @@ namespace Barros.FinanceControl.View {
             maskedDataFinal.Text = DateTime.Now.ToString("dd/MM/yyyy");
             cbxCampoSelecionado.DataSource = transacaoService
                         .getAllPropertiesWithout("Id", "Conta", "Categoria");            
-        }
-
-        private void loadCheckedListBoxConta() {
-            ContaService contaService = new ContaService(new ContaDao(
-                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
-                                    .getUsuario()).Session));
-            checkedListBoxConta.Items.Clear();
-            checkedListBoxConta.Items.AddRange(
-                    IListConverter<Conta>.toList(contaService
-                            .getAllListOrderByAsc("Descricao")).ToArray());
-
-            contaBindingSource.DataSource = contaService.getAllListOrderByAsc("Descricao");
-            contaService = null;
-        }
+        }     
 
         /// <summary>
         /// Atualiza o saldo no dataGrid ContasSelecionadas.
@@ -67,7 +54,7 @@ namespace Barros.FinanceControl.View {
         }
 
         private void atualizaListaDeContasSelecionadas(){
-            loadCheckedListBoxConta();
+            //loadCheckedListBoxConta();
             int totalContasSelecionada = checkedListBoxConta.CheckedItems.Count;
             if (totalContasSelecionada == 0) 
                 totalContasSelecionada = checkedListBoxConta.Items.Count;
@@ -84,7 +71,7 @@ namespace Barros.FinanceControl.View {
         }
 
         private void atualizaListaDeCategoriasSelecionadas() {
-            loadCheckedListBoxCategoria();
+            //loadCheckedListBoxCategoria();
             int totalCategoriasSelecionada = checkedListBoxCategoria.CheckedItems.Count;
             if (totalCategoriasSelecionada == 0)
                 totalCategoriasSelecionada = checkedListBoxCategoria.Items.Count;            
@@ -99,10 +86,24 @@ namespace Barros.FinanceControl.View {
             }
         }
 
+        private void loadCheckedListBoxConta() {
+            ContaService contaService = new ContaService(new ContaDao(
+                                FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
+                                    .getUsuario()).Session));
+            
+            checkedListBoxConta.Items.Clear();
+            checkedListBoxConta.Items.AddRange(
+                    IListConverter<Conta>.toList(contaService
+                            .getAllListOrderByAsc("Descricao")).ToArray());
+            
+            contaBindingSource.DataSource = contaService.getAllListOrderByAsc("Descricao");
+            contaService = null;
+        }
+
         private void loadCheckedListBoxCategoria() {
             CategoriaService categoriaService = new CategoriaService(new CategoriaDao(
                                 FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
-                                    .getUsuario()).Session));
+                                    .getUsuario()).Session));            
             checkedListBoxCategoria.Items.Clear();
             checkedListBoxCategoria.Items.AddRange(
                     IListConverter<Categoria>.toList(categoriaService
@@ -128,6 +129,8 @@ namespace Barros.FinanceControl.View {
         {
             FormTransacao fu = new FormTransacao(transacaoService);
             fu.ShowDialog();
+            loadCheckedListBoxConta();
+            loadCheckedListBoxCategoria();
             atualizaGrid();
         }
 
@@ -135,6 +138,8 @@ namespace Barros.FinanceControl.View {
         {
             FormTransacao fu = new FormTransacao(transacaoService, getTransacaoSelecionada());
             fu.ShowDialog();
+            loadCheckedListBoxConta();
+            loadCheckedListBoxCategoria();
             atualizaGrid();
         }
 

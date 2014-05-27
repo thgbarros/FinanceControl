@@ -157,7 +157,7 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
         //}
 
         private string getTabelaOrcamentoFor(Usuario usuario) {
-            return "create table "+usuario.Login+"orcamento(" +
+            return "create table "+usuario.Login+".orcamento(" +
                         "id number not null," +
                         "descricao varchar2(60) not null," +
                         "tipo_orcamento number default 0," +
@@ -167,7 +167,7 @@ namespace Barros.FinanceControl.Models.Repository.Daos {
                         "categoria_id number not null," +
                         "constraint pk_orcamento_id primary key(id)," +
                         "constraint fk_orc_categoria_id foreign key(categoria_id) references "+
-                                usuario.Login+"categoria(id))";
+                                usuario.Login+".categoria(id))";
         }
 
 
