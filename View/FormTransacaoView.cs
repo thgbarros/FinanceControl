@@ -8,6 +8,7 @@ using Barros.FinanceControl.Models.Service;
 using Barros.FinanceControl.Models.Entities;
 using Barros.FinanceControl.Models.Repository.Daos;
 using Tecnomotor.InjectorTestPC.Models.Repositories;
+using Barros.FinanceControl.Report;
 
 namespace Barros.FinanceControl.View {
     
@@ -211,6 +212,13 @@ namespace Barros.FinanceControl.View {
             transacaoBindingSource.DataSource = transacaoService.
                         searchByField(cbxCampoSelecionado.Text).thisValue(txtBusca.Text);
             transacaoDataGridView.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormTransacaoReport rt = new FormTransacaoReport(transacaoService.getTransacaoVOList(
+                                        (IList<Transacao>)transacaoBindingSource.DataSource));
+            rt.Show();
         }   
  
     }

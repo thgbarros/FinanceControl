@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Barros.FinanceControl.Models.Entities;
 using Barros.FinanceControl.Models.Repository.Daos;
 using Barros.FinanceControl.Models.Repository.Interface;
+using Barros.FinanceControl.Models.Entities.VOs;
 
 
 namespace Barros.FinanceControl.Models.Service {
@@ -87,6 +88,17 @@ namespace Barros.FinanceControl.Models.Service {
             hql += " order by t.Data asc, t.Id asc";
 
             return dao.findByHql(hql, parans);
+        }
+
+        public IList<TransacaoVO> getTransacaoVOList(IList<Transacao> transacoes) {
+            IList<TransacaoVO> transacaoesVO = new List<TransacaoVO>();
+            foreach (Transacao trans in transacoes) {
+                TransacaoVO vo = new TransacaoVO(trans.Id, trans.Data, trans.Descricao, 
+                        trans.Categoria.ToString(), trans.Conta.ToString(), trans.Valor);
+
+                transacaoesVO.Add(vo);
+            }
+            return transacaoesVO;
         }
     }
 }

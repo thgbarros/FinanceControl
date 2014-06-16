@@ -89,6 +89,7 @@ namespace Barros.FinanceControl.View
             this.SsaldoAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanelFiltro.SuspendLayout();
             this.tableLayoutPanelContaCategoria.SuspendLayout();
             this.tableLayoutPanelAcoes.SuspendLayout();
@@ -293,6 +294,7 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelBotoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanelBotoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanelBotoes.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.tableLayoutPanelBotoes.Controls.Add(this.button1, 4, 0);
             this.tableLayoutPanelBotoes.Controls.Add(this.btnFechar, 6, 0);
             this.tableLayoutPanelBotoes.Controls.Add(this.btnExcluir, 3, 0);
             this.tableLayoutPanelBotoes.Controls.Add(this.btnAlterar, 2, 0);
@@ -668,6 +670,19 @@ namespace Barros.FinanceControl.View
             this.label8.Text = "Saldo Total:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(477, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 49);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "F7 - Excluir";
+            this.button1.UseCompatibleTextRendering = true;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormTransacaoView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -767,6 +782,7 @@ namespace Barros.FinanceControl.View
         private System.Windows.Forms.DataGridViewTextBoxColumn DataSaldoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn SaldoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn SsaldoAtual;
+        private System.Windows.Forms.Button button1;
 
     }
 }

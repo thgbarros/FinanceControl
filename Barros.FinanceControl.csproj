@@ -66,6 +66,15 @@
     <Reference Include="log4net">
       <HintPath>packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="NHibernate">
       <HintPath>packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
     </Reference>
@@ -74,6 +83,7 @@
       <HintPath>packages\Oracle.DataAccess.x86.2.112.1.0\lib\Oracle.DataAccess.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
@@ -94,6 +104,7 @@
     <Compile Include="Models\Entities\Transacao.cs" />
     <Compile Include="Models\Entities\Usuario.cs" />
     <Compile Include="Models\Entities\UsuarioLogado.cs" />
+    <Compile Include="Models\Entities\VOs\TransacaoVO.cs" />
     <Compile Include="Models\Repository\Daos\AbstractGenericDao.cs" />
     <Compile Include="Models\Repository\Daos\BaseCrudDao.cs" />
     <Compile Include="Models\Repository\Daos\CategoriaDao.cs" />
@@ -117,6 +128,12 @@
     <Compile Include="Models\Service\ContaService.cs" />
     <Compile Include="Models\Service\TransacaoService.cs" />
     <Compile Include="Models\Service\UsuarioService.cs" />
+    <Compile Include="Report\FormTransacaoReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormTransacaoReport.Designer.cs">
+      <DependentUpon>FormTransacaoReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\CurrenceFormat.cs" />
     <Compile Include="Utils\IListConverter.cs" />
     <Compile Include="Utils\MD5EncryptHandler.cs" />
@@ -200,6 +217,10 @@
     <Compile Include="View\FormUsuarioView.Designer.cs">
       <DependentUpon>FormUsuarioView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\TransacaoReport.rdlc" />
+    <EmbeddedResource Include="Report\FormTransacaoReport.resx">
+      <DependentUpon>FormTransacaoReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\FormAguarde.resx">
       <DependentUpon>FormAguarde.cs</DependentUpon>
     </EmbeddedResource>
@@ -258,6 +279,7 @@
     <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Orcamento.datasource" />
     <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Transacao.datasource" />
     <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Usuario.datasource" />
+    <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.VOs.TransacaoVO.datasource" />
     <None Include="Properties\DataSources\Tecnomotor.InjectorTestPC.Models.Entities.ClienteInfo.Cliente.datasource" />
     <None Include="Properties\DataSources\Tecnomotor.InjectorTestPC.Models.Entities.ClienteInfo.ProprietarioVeiculo.datasource" />
     <None Include="Properties\Settings.settings">
@@ -296,7 +318,9 @@
     <Content Include="icon.ico" />
     <None Include="Resources\aguarde_g.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
