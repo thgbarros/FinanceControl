@@ -12,12 +12,13 @@ namespace Barros.FinanceControl.Models.Repository.Mapping {
             Map(c => c.Descricao).Column("descricao").Length(100).Not.Nullable();
             Map(c => c.TipoCategoria).Column("tipo_categoria").CustomType<int>();
             References(c => c.CategoriaPai).Column("categoria_pai").Cascade.SaveUpdate();
-            
+
             HasMany(x => x.Transacoes)
-                   .LazyLoad()
-                   .KeyColumn("conta_id")
-                //        .Cascade.SaveUpdate()                    
-                   .AsBag();
+                    .KeyColumn("conta_id")
+                    .LazyLoad()
+                    .Inverse()
+                    .Cascade.None();
+                    //.AsBag();
         }
 
     }

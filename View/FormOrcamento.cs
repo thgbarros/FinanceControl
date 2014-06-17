@@ -24,18 +24,23 @@ namespace Barros.FinanceControl.View {
             this.orcamentoParaAlterar = orcamentoParaAlterar;
 
             txtId.Text = orcamentoParaAlterar.Id.ToString();
-            txtDescricao.Text = orcamentoParaAlterar.Descricao;   
+            txtDescricao.Text = orcamentoParaAlterar.Descricao;
+            txtValor.Text = CurrencyFormat.doubleToString(orcamentoParaAlterar.Valor);
             if (orcamentoParaAlterar.Categoria != null)         
-                cbxCategoria.SelectedItem = orcamentoParaAlterar.Categoria;
+                cbxCategoria.SelectedItem = orcamentoParaAlterar.Categoria;            
 
             if (orcamentoParaAlterar.TipoOrcamento.Equals(TipoOrcamento.ANUAL))  {
                 rbTipoAno.Checked = true;
+            } else {
+                cbxMesSelecionado.SelectedIndex = cbxMesSelecionado.Items.IndexOf(orcamentoParaAlterar.Mes);
             }
+
+
         }
 
         public FormOrcamento(OrcamentoService orcamentoService) {
             InitializeComponent();            
-            this.orcamentoService = orcamentoService;
+            this.orcamentoService = orcamentoService;            
 
             CategoriaService categoriaService = new CategoriaService(new CategoriaDao(
                                 FluentlySessionFactory.getInstanceFor(UsuarioLogado.getInstance()
@@ -54,10 +59,11 @@ namespace Barros.FinanceControl.View {
             orcamento.Categoria = null;
             if (cbxCategoria.Items.Count > 0 && cbxCategoria.SelectedIndex >= 0) 
                 orcamento.Categoria = ((IList<Categoria>)cbxCategoria.DataSource)[cbxCategoria.SelectedIndex];
-
+            
             if (rbTipoMes.Checked) {
                 orcamento.TipoOrcamento = TipoOrcamento.MENSAL;
-                orcamento.Mes = cbxMesSelecionado.SelectedIndex + 1;
+                orcamento.Mes = cbxMesSelecionado.Items[cbxMesSelecionado.SelectedIndex].ToString();
+                orcamento.Ano = DateTime.Now.Year;
             } else {
                 orcamento.TipoOrcamento = TipoOrcamento.ANUAL;
                 orcamento.Ano = DateTime.Now.Year;

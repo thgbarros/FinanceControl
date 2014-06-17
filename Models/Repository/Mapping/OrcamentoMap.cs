@@ -14,7 +14,11 @@ namespace Barros.FinanceControl.Models.Repository.Mapping {
             Map(c => c.Valor).Column("valor").Not.Nullable();
             Map(c => c.Mes).Column("mes");
             Map(c => c.Ano).Column("ano");
-            References(c => c.Categoria).Column("categoria_id").Not.Nullable().Cascade.SaveUpdate();                                   
+            References(c => c.Categoria)
+                    .LazyLoad()
+                    .Column("categoria_id")
+                    .Not.Nullable()
+                    .Cascade.None();                                   
         }
 
     }

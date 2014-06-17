@@ -104,6 +104,7 @@
     <Compile Include="Models\Entities\Transacao.cs" />
     <Compile Include="Models\Entities\Usuario.cs" />
     <Compile Include="Models\Entities\UsuarioLogado.cs" />
+    <Compile Include="Models\Entities\VOs\OrcamentoVO.cs" />
     <Compile Include="Models\Entities\VOs\TransacaoVO.cs" />
     <Compile Include="Models\Repository\Daos\AbstractGenericDao.cs" />
     <Compile Include="Models\Repository\Daos\BaseCrudDao.cs" />
@@ -128,6 +129,12 @@
     <Compile Include="Models\Service\ContaService.cs" />
     <Compile Include="Models\Service\TransacaoService.cs" />
     <Compile Include="Models\Service\UsuarioService.cs" />
+    <Compile Include="Report\FormOrcamentoReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormOrcamentoReport.Designer.cs">
+      <DependentUpon>FormOrcamentoReport.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report\FormTransacaoReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +224,10 @@
     <Compile Include="View\FormUsuarioView.Designer.cs">
       <DependentUpon>FormUsuarioView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\FormOrcamentoReport.resx">
+      <DependentUpon>FormOrcamentoReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\OrcamentoReport.rdlc" />
     <EmbeddedResource Include="Report\TransacaoReport.rdlc" />
     <EmbeddedResource Include="Report\FormTransacaoReport.resx">
       <DependentUpon>FormTransacaoReport.cs</DependentUpon>
@@ -279,6 +290,7 @@
     <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Orcamento.datasource" />
     <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Transacao.datasource" />
     <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.Usuario.datasource" />
+    <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.VOs.OrcamentoVO.datasource" />
     <None Include="Properties\DataSources\Barros.FinanceControl.Models.Entities.VOs.TransacaoVO.datasource" />
     <None Include="Properties\DataSources\Tecnomotor.InjectorTestPC.Models.Entities.ClienteInfo.Cliente.datasource" />
     <None Include="Properties\DataSources\Tecnomotor.InjectorTestPC.Models.Entities.ClienteInfo.ProprietarioVeiculo.datasource" />

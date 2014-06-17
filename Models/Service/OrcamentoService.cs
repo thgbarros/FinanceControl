@@ -1,4 +1,5 @@
 ﻿using Barros.FinanceControl.Models.Entities;
+using Barros.FinanceControl.Models.Entities.VOs;
 using Barros.FinanceControl.Models.Repository.Daos;
 using Barros.FinanceControl.Models.Repository.Interface;
 using System;
@@ -29,6 +30,16 @@ namespace Barros.FinanceControl.Models.Service {
                 throw new ArgumentException("Propriedade inválida!");
 
             return dao.findByHql("from Orcamento order by " + field + " " + orderBy);
+        }
+
+        public IList<OrcamentoVO> getOrcamentoVOList(IList<Orcamento> orcamentos) {
+            IList<OrcamentoVO> orcamentosVO = new List<OrcamentoVO>();
+            
+            foreach (Orcamento orc in orcamentos) {                
+                orcamentosVO.Add(new OrcamentoVO(orc.Id, orc.Descricao, orc.Categoria.ToString(),
+                                        (int)orc.TipoOrcamento, orc.Mes, orc.Ano, orc.Valor));
+            }            
+            return orcamentosVO;
         }
 
     }

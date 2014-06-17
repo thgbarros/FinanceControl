@@ -13,7 +13,7 @@ namespace Barros.FinanceControl.Models.Entities {
         public virtual string Descricao { get; set; }
         public virtual Categoria Categoria { get; set; }
         public virtual TipoOrcamento TipoOrcamento { get; set; }
-        public virtual int Mes { get; set; }
+        public virtual string Mes { get; set; }
         public virtual int Ano { get; set; }
         public virtual double Valor { get; set; }
 

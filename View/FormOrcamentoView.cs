@@ -1,6 +1,7 @@
 ﻿using Barros.FinanceControl.Models.Entities;
 using Barros.FinanceControl.Models.Repository.Daos;
 using Barros.FinanceControl.Models.Service;
+using Barros.FinanceControl.Report;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,7 +25,8 @@ namespace Barros.FinanceControl.View {
                         UsuarioLogado.getInstance().getUsuario()).Session));
 
             cbxCampoSelecionado.DataSource = service.getAllProperties();
-            cbxCampoSelecionado.SelectedIndex = 0;            
+            cbxCampoSelecionado.SelectedIndex = 0;
+            atualizaGrid();
         }
 
         private void atualizaGrid() {
@@ -102,6 +104,13 @@ namespace Barros.FinanceControl.View {
 
             orcamentoBindingSource.DataSource = service.searchByField(cbxCampoSelecionado.Text).thisValue(txtBusca.Text);
             orcamentoDataGridView.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormOrcamentoReport report = new FormOrcamentoReport(service.getOrcamentoVOList(
+                                                    (IList<Orcamento>)orcamentoBindingSource.DataSource));
+            report.Show();
         }
 
     }

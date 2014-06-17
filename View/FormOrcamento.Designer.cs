@@ -60,7 +60,7 @@
             this.tableLayoutPanelConteudo.ColumnCount = 3;
             this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 31.04925F));
             this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.95075F));
-            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanelConteudo.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 31F));
             this.tableLayoutPanelConteudo.Controls.Add(this.txtValor, 0, 6);
             this.tableLayoutPanelConteudo.Controls.Add(this.txtDescricao, 1, 2);
             this.tableLayoutPanelConteudo.Controls.Add(this.label5, 0, 2);
@@ -106,7 +106,7 @@
             this.txtDescricao.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(147, 63);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(314, 26);
+            this.txtDescricao.Size = new System.Drawing.Size(313, 26);
             this.txtDescricao.TabIndex = 1;
             // 
             // label5
@@ -162,7 +162,7 @@
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(147, 93);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(314, 24);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(313, 24);
             this.flowLayoutPanel2.TabIndex = 65;
             // 
             // rbTipoMes
@@ -224,7 +224,7 @@
             this.cbxCategoria.FormattingEnabled = true;
             this.cbxCategoria.Location = new System.Drawing.Point(147, 123);
             this.cbxCategoria.Name = "cbxCategoria";
-            this.cbxCategoria.Size = new System.Drawing.Size(314, 26);
+            this.cbxCategoria.Size = new System.Drawing.Size(313, 26);
             this.cbxCategoria.TabIndex = 2;
             this.cbxCategoria.ValueMember = "Descricao";
             // 

@@ -80,15 +80,11 @@ namespace Barros.FinanceControl.Models.Entities {
             return Descricao;// +" R$:" + String.Format("{0:0.00}", Saldo);
         }
 
-        public override bool Equals(object obj) {
-            if (GetType() != obj.GetType())
-                return false;
-
-            Conta other = (Conta)obj;
-            if (other == null)
-                return false;
-            else if (other.Id != this.Id)
-                return false;
+        public override bool Equals(object obj) {                                   
+            if (obj == null) return false;
+            var other = obj as Conta;
+            if (other == null) return false;
+            if (other.Id != this.Id) return false;
 
             return true;
         }
