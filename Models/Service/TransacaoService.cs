@@ -92,12 +92,26 @@ namespace Barros.FinanceControl.Models.Service {
 
         public IList<TransacaoVO> getTransacaoVOList(IList<Transacao> transacoes) {
             IList<TransacaoVO> transacaoesVO = new List<TransacaoVO>();
+            List<Conta> contasAdd = new List<Conta>();
             foreach (Transacao trans in transacoes) {
-                TransacaoVO vo = new TransacaoVO(trans.Id, trans.Data, trans.Descricao, 
-                        trans.Categoria.ToString(), trans.Conta.ToString(), trans.Valor);
+                Conta conta = trans.Conta;
+                double saldoInicial = 0;
+                double saldo = 0;
 
-                transacaoesVO.Add(vo);
+                if (!contasAdd.Contains(conta))  {
+                    contasAdd.Add(conta);
+                    saldoInicial = conta.SaldoInicial;
+                    saldo = conta.Saldo;
+                } else {
+                    saldoInicial = 0;
+                    saldo = 0;
+                }
+                
+                transacaoesVO.Add(new TransacaoVO(trans.Id, trans.Data, trans.Descricao, 
+                        trans.Categoria.ToString(), trans.Conta.ToString(), saldoInicial , 
+                            saldo, trans.Valor));
             }
+            contasAdd = null;
             return transacaoesVO;
         }
     }

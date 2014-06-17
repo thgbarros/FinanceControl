@@ -60,6 +60,7 @@ namespace Barros.FinanceControl.View
             this.checkedListBoxConta = new System.Windows.Forms.CheckedListBox();
             this.tableLayoutPanelAcoes = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanelBotoes = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
@@ -86,10 +87,9 @@ namespace Barros.FinanceControl.View
             this.Descricao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DataSaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SaldoInicial = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SsaldoAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SaldoAtual = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanelFiltro.SuspendLayout();
             this.tableLayoutPanelContaCategoria.SuspendLayout();
             this.tableLayoutPanelAcoes.SuspendLayout();
@@ -307,6 +307,19 @@ namespace Barros.FinanceControl.View
             this.tableLayoutPanelBotoes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 57F));
             this.tableLayoutPanelBotoes.Size = new System.Drawing.Size(832, 59);
             this.tableLayoutPanelBotoes.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(477, 5);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 49);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "F8 - Relatório";
+            this.button1.UseCompatibleTextRendering = true;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnFechar
             // 
@@ -600,7 +613,7 @@ namespace Barros.FinanceControl.View
             this.Descricao,
             this.DataSaldoInicial,
             this.SaldoInicial,
-            this.SsaldoAtual});
+            this.SaldoAtual});
             this.tableLayoutPanel1.SetColumnSpan(this.dataGridViewContaSaldo, 2);
             this.dataGridViewContaSaldo.DataSource = this.contaBindingSource;
             this.dataGridViewContaSaldo.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -642,17 +655,17 @@ namespace Barros.FinanceControl.View
             this.SaldoInicial.ReadOnly = true;
             this.SaldoInicial.Width = 150;
             // 
-            // SsaldoAtual
+            // SaldoAtual
             // 
-            this.SsaldoAtual.DataPropertyName = "Saldo";
+            this.SaldoAtual.DataPropertyName = "Saldo";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.Format = "C2";
             dataGridViewCellStyle9.NullValue = null;
-            this.SsaldoAtual.DefaultCellStyle = dataGridViewCellStyle9;
-            this.SsaldoAtual.HeaderText = "Saldo Atual";
-            this.SsaldoAtual.Name = "SsaldoAtual";
-            this.SsaldoAtual.ReadOnly = true;
-            this.SsaldoAtual.Width = 150;
+            this.SaldoAtual.DefaultCellStyle = dataGridViewCellStyle9;
+            this.SaldoAtual.HeaderText = "Saldo Atual";
+            this.SaldoAtual.Name = "SaldoAtual";
+            this.SaldoAtual.ReadOnly = true;
+            this.SaldoAtual.Width = 150;
             // 
             // contaBindingSource
             // 
@@ -669,19 +682,6 @@ namespace Barros.FinanceControl.View
             this.label8.TabIndex = 2;
             this.label8.Text = "Saldo Total:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(477, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 49);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "F7 - Excluir";
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormTransacaoView
             // 
@@ -778,11 +778,11 @@ namespace Barros.FinanceControl.View
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Descricao;
         private System.Windows.Forms.DataGridViewTextBoxColumn DataSaldoInicial;
         private System.Windows.Forms.DataGridViewTextBoxColumn SaldoInicial;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SsaldoAtual;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SaldoAtual;
 
     }
 }

@@ -215,10 +215,10 @@ namespace Barros.FinanceControl.View {
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            FormTransacaoReport rt = new FormTransacaoReport(transacaoService.getTransacaoVOList(
-                                        (IList<Transacao>)transacaoBindingSource.DataSource));
-            rt.Show();
+        {            
+            FormTransacaoReport report = new FormTransacaoReport(transacaoService.getTransacaoVOList(
+                                                    (IList<Transacao>)transacaoBindingSource.DataSource));
+            report.Show();
         }   
  
     }
